@@ -1,0 +1,76 @@
+14:29:07 methodc-peer: LAB peer: A0 upstream=https://127.0.0.1:8443 ws=ws://127.0.0.1:8800/v1/ws join_base=https://127.0.0.1:8800 pair_exp=300
+14:29:07 methodc-peer: signalling ready
+14:29:07 methodc-peer: mint needed: no join published
+14:29:07 methodc-peer: published join → /workspace/mc-lab/run/sticklink-join.json
+14:29:07 methodc-peer: QR ready exp=1795116607
+14:29:44 methodc-peer: session ended: RuntimeError: kiosk remint requested; retry in 2s
+14:29:44 methodc-peer: signalling ready
+14:29:44 methodc-peer: mint needed: remint.req
+14:29:44 methodc-peer: published join → /workspace/mc-lab/run/sticklink-join.json
+14:29:44 methodc-peer: QR ready exp=1795116644
+14:29:45 methodc-peer: peer join c4
+14:29:45 methodc-peer: ICE servers=0
+14:29:45 methodc-peer: sent offer
+14:29:45 methodc-peer: set remote answer
+14:29:46 methodc-peer: datachannel open
+14:29:46 methodc-peer: noise ok
+14:29:46 methodc-peer: pair_psk+confirm ok
+14:29:46 methodc-peer: agent bridge ready (loopback; Bearer …[redacted-mock])
+14:29:46 methodc-peer: agent_ready; app-mux → https://127.0.0.1 only
+14:29:46 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=4ms)
+14:29:46 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+14:29:46 methodc-peer: http POST /agent-zero/api/poll -> 200 (500 B, up=2ms)
+14:29:46 methodc-peer: http POST /agent-zero/api/poll -> 200 (196 B, up=3ms)
+14:29:47 methodc-peer: http POST /agent-zero/api/poll -> 200 (352 B, up=3ms)
+14:29:47 methodc-peer: http POST /agent-zero/api/poll -> 200 (393 B, up=3ms)
+14:29:47 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+14:29:47 methodc-peer: http POST /agent-zero/api/poll -> 200 (996 B → gz 394 B, up=2ms)
+14:29:48 methodc-peer: http POST /agent-zero/api/poll -> 200 (196 B, up=3ms)
+14:29:48 methodc-peer: http POST /agent-zero/api/poll -> 200 (353 B, up=3ms)
+14:29:49 methodc-peer: http POST /agent-zero/api/poll -> 200 (390 B, up=3ms)
+14:29:49 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=2ms)
+14:29:49 methodc-peer: http POST /agent-zero/api/poll -> 200 (1479 B → gz 467 B, up=2ms)
+14:29:49 methodc-peer: http POST /agent-zero/api/poll -> 200 (197 B, up=3ms)
+14:29:50 methodc-peer: http POST /agent-zero/api/poll -> 200 (1364 B → gz 340 B, up=3ms)
+14:29:50 methodc-peer: http POST /agent-zero/api/poll -> 200 (145962 B → gz 7084 B, up=6ms)
+14:29:50 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+14:29:50 methodc-peer: http POST /agent-zero/api/poll -> 200 (147531 B → gz 7543 B, up=4ms)
+14:29:51 methodc-peer: http POST /agent-zero/api/poll -> 200 (197 B, up=3ms)
+14:29:51 methodc-peer: http POST /agent-zero/api/poll -> 200 (197 B, up=3ms)
+14:29:52 methodc-peer: http POST /agent-zero/api/stop -> 200 (54 B, up=3ms)
+14:29:52 methodc-peer: http POST /agent-zero/api/poll -> 200 (197 B, up=3ms)
+14:29:52 methodc-peer: http POST /agent-zero/api/poll -> 200 (357 B, up=3ms)
+14:30:32 methodc-peer: client close
+14:30:32 methodc-peer: live session ended (idle_ok last_rx_age=0s)
+14:30:32 methodc-peer: datachannel closed by peer/stack
+14:30:32 methodc-peer: webrtc connectionState=closed
+14:30:32 methodc-peer: signalling ready
+14:30:37 methodc-peer: mint needed: remint.req
+14:30:37 methodc-peer: published join → /workspace/mc-lab/run/sticklink-join.json
+14:30:37 methodc-peer: QR ready exp=1795116697
+14:31:36 methodc-peer: QR expired — waiting for kiosk remint (not auto-reminting; protects pair.open quota)
+14:31:40 methodc-peer: session ended: RuntimeError: kiosk remint requested; retry in 2s
+14:31:40 methodc-peer: signalling ready
+14:31:40 methodc-peer: mint needed: remint.req
+14:31:40 methodc-peer: published join → /workspace/mc-lab/run/sticklink-join.json
+14:31:40 methodc-peer: QR ready exp=1795116760
+14:31:41 methodc-peer: peer join c8
+14:31:41 methodc-peer: ICE servers=0
+14:31:41 methodc-peer: sent offer
+14:31:41 methodc-peer: set remote answer
+14:31:41 methodc-peer: datachannel open
+14:31:41 methodc-peer: noise ok
+14:31:41 methodc-peer: pair_psk+confirm ok
+14:31:41 methodc-peer: agent bridge ready (loopback; Bearer …[redacted-mock])
+14:31:41 methodc-peer: agent_ready; app-mux → https://127.0.0.1 only
+14:31:41 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=3ms)
+14:31:41 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+14:31:41 methodc-peer: http POST /agent-zero/api/poll -> 200 (535 B, up=2ms)
+14:31:42 methodc-peer: http POST /agent-zero/api/poll -> 200 (234 B, up=3ms)
+14:31:42 methodc-peer: http POST /agent-zero/api/poll -> 200 (391 B, up=3ms)
+14:31:43 methodc-peer: http POST /agent-zero/api/poll -> 200 (430 B, up=3ms)
+14:31:43 methodc-peer: client close
+14:31:43 methodc-peer: live session ended (idle_ok last_rx_age=0s)
+14:31:43 methodc-peer: datachannel closed by peer/stack
+14:31:43 methodc-peer: webrtc connectionState=closed
+14:31:43 methodc-peer: signalling ready

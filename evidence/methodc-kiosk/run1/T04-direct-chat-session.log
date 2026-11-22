@@ -1,0 +1,33 @@
+# T04-direct-chat-session  expect=ok  started 14:29:45 (America/Toronto)
+# args: --text hello from the phone core --text2 second turn same chat --long --cancel --forbidden --hold-sec 40
+  0.02s harness: join link ok ws_host=127.0.0.1 debug=true
+  0.25s harness: signalling open
+  0.27s harness: pair.joined
+  0.53s harness: got offer
+  0.54s harness: sent answer (1 candidates)
+  0.58s harness: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+  0.59s harness: noise ok
+  0.61s harness: pair_psk+confirm ok
+  0.61s harness: agent_ready
+  0.61s harness: SESSION up path=direct local=host remote=host proto=udp
+  0.63s harness: progress: Thinking…
+  2.15s harness: progress: Waiting for input
+  2.15s harness: ANSWER ctx=9a2723… len=43 text=MOCK-A0 reply to: hello from the phone core
+  2.17s harness: progress: Thinking…
+  3.69s harness: progress: Waiting for input
+  3.69s harness: ANSWER ctx=9a2723… len=39 text=MOCK-A0 reply to: second turn same chat
+  3.70s harness: progress: Thinking…
+  5.23s harness: progress: Waiting for input
+  5.23s harness: LONG answer len=143011 tail=the lazy dog
+END-OF-LONG
+  5.25s harness: progress: Thinking…
+  6.26s harness: progress: Working step 0
+  6.73s harness: cancel → /agent-zero/api/stop
+  6.77s harness: progress: Working step 1
+  7.27s harness: progress: Waiting for input
+  7.28s harness: CANCEL stopped=true answer=null
+  7.28s harness: FORBIDDEN /api/speech/power -> 403 forbidden path
+  7.28s harness: holding session 40s
+ 47.28s harness: still alive=true
+ 47.28s harness: closed
+RESULT outcome=ok expect=ok PASS

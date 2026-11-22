@@ -1,0 +1,18 @@
+# T10-stick-dies-mid-session  expect=LOST  started 20:27:15 (America/Toronto)
+# args: --text before the stick dies --hold-sec 60
+  0.02s harness: join link ok ws_host=127.0.0.1 debug=true
+  0.22s harness: signalling open
+  0.24s harness: pair.joined
+  0.46s harness: got offer
+  0.47s harness: sent answer (1 candidates)
+  0.50s harness: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+  0.52s harness: noise ok
+  0.53s harness: pair_psk+confirm ok
+  0.53s harness: agent_ready
+  0.53s harness: SESSION up path=direct local=host remote=host proto=udp
+  2.08s harness: ANSWER ctx=71d4ba… len=39 text=MOCK-A0 reply to: before the stick dies
+  2.08s harness: holding session 60s
+ 30.54s harness: session lost: webrtc failed
+ 30.70s harness: still alive=false lost=webrtc failed
+ 30.70s harness: closed
+RESULT outcome=LOST expect=LOST PASS

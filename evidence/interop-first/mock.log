@@ -1,0 +1,121 @@
+mock signalling on ws://127.0.0.1:8788/v1/ws (5 devices)
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'
+connection handler failed
+Traceback (most recent call last):
+  File "/workspace/.tooling/venv/lib/python3.13/site-packages/websockets/asyncio/server.py", line 762, in protocol_handler
+    await handler(connection)
+          ~~~~~~~^^^^^^^^^^^^
+TypeError: handler() missing 1 required positional argument: 'path'

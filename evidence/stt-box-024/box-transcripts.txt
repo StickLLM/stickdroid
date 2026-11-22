@@ -1,0 +1,97 @@
+== s1.wav
+partial @1000ms: what
+partial @1200ms: what is
+partial @1500ms: what is that
+partial @1700ms: what is the weather
+partial @1900ms: what is the weather like
+partial @2200ms: what is the weather like in
+partial @2700ms: what is the weather like in toronto
+partial @2900ms: what is the weather like in toronto and
+partial @3100ms: what is the weather like in toronto the
+partial @3400ms: what is the weather like in toronto the day
+model_load_ms=427 audio_ms=6383 speech_ms=2883
+decision=EndOfSpeech at_ms=4500 (speech ends at 3383 ms) process_ms=828
+TRANSCRIPT: what is the weather like in toronto the day
+== s2.wav
+partial @1200ms: turn on the
+partial @1700ms: turn on the living room
+partial @2700ms: turn on the living room lights
+model_load_ms=265 audio_ms=5592 speech_ms=2092
+decision=EndOfSpeech at_ms=3800 (speech ends at 2592 ms) process_ms=771
+TRANSCRIPT: turn on the living room lights
+== s3.wav
+partial @1200ms: sk
+partial @1700ms: sk john to the
+partial @1900ms: sk going to be a
+partial @2200ms: sk john to the ropes or
+partial @2400ms: sk john to the ropes are summarized
+partial @2900ms: sk john to the ropes are summarized my on
+partial @3400ms: sk john to the ropes are summarized my on ready made
+partial @3600ms: sk john to the ropes are summarized my on read the email
+model_load_ms=282 audio_ms=6621 speech_ms=3121
+decision=EndOfSpeech at_ms=4700 (speech ends at 3621 ms) process_ms=1082
+TRANSCRIPT: sk john to the ropes are summarized my on read the email
+== s4.wav
+partial @1500ms: tyler
+partial @1900ms: since october
+partial @2200ms: tyler for ten
+partial @2400ms: tyler for ten minutes
+partial @3100ms: tibor for ten minutes
+model_load_ms=314 audio_ms=5742 speech_ms=2242
+decision=EndOfSpeech at_ms=4200 (speech ends at 2742 ms) process_ms=803
+TRANSCRIPT: tibor for ten minutes
+== s5.wav
+partial @1500ms: tyler
+partial @1900ms: since october
+partial @2200ms: tyler for ten
+partial @2400ms: tyler for ten minutes
+partial @3100ms: tibor for ten minutes
+partial @4100ms: tibor for ten minutes turn on
+partial @4300ms: tibor for ten minutes turn on the
+partial @4600ms: tibor for ten minutes turn on the living
+partial @4800ms: tibor for ten minutes turn on the living room
+partial @5500ms: tibor for ten minutes turn on the living room lights
+model_load_ms=324 audio_ms=8535 speech_ms=5035
+decision=EndOfSpeech at_ms=6600 (speech ends at 5535 ms) process_ms=1178
+TRANSCRIPT: tibor for ten minutes turn on the living room lights
+== s6.wav
+partial @1000ms: what
+partial @1200ms: what is
+partial @1500ms: what is that
+partial @1700ms: what is the weather
+partial @1900ms: what is the weather like
+partial @2200ms: what is the weather like in
+partial @2700ms: what is the weather like in toronto
+partial @2900ms: what is the weather like in toronto and
+partial @3100ms: what is the weather like in toronto the
+partial @3400ms: what is the weather like in toronto today
+partial @3600ms: what is the weather like in toronto and they
+partial @3900ms: what is the weather like in toronto today
+model_load_ms=275 audio_ms=6383 speech_ms=2883
+decision=EndOfSpeech at_ms=5000 (speech ends at 3383 ms) process_ms=832
+TRANSCRIPT: what is the weather like in toronto today
+== s7.wav (espeak -s 125)
+partial @1200ms: ask
+partial @1500ms: ask a
+partial @1900ms: ask a don't
+partial @2200ms: ask a joint zero
+partial @3400ms: ask a joint zero to summarize
+partial @3900ms: ask a joint zero to summarize my
+partial @4300ms: ask a joint zero to summarize my own read the
+partial @4600ms: ask a joint zero to summarize my own read emails
+partial @4800ms: ask a joint zero to summarize my own read email
+partial @5500ms: ask a joint zero to summarize my on read email
+model_load_ms=404 audio_ms=8088 speech_ms=4588
+decision=EndOfSpeech at_ms=6600 (speech ends at 5088 ms) process_ms=1100
+TRANSCRIPT: ask a joint zero to summarize my on read email
+== s8.wav (espeak -s 125)
+partial @1200ms: said
+partial @1500ms: set up
+partial @1700ms: set a
+partial @1900ms: set a timer
+partial @2200ms: set a timer for
+partial @2700ms: set a timer for ten
+partial @3400ms: set a timer for ten minutes
+model_load_ms=302 audio_ms=6880 speech_ms=3380
+decision=EndOfSpeech at_ms=4500 (speech ends at 3880 ms) process_ms=694
+TRANSCRIPT: set a timer for ten minutes

@@ -1,0 +1,12 @@
+19:00:34 testpeer: joined as c3, stick online
+19:00:34 testpeer: relay.reg ok (cdb3dd42)
+19:00:34 testpeer: derp connected http://127.0.0.1:3341/derp as cdb3dd42
+19:00:34 testpeer: sent 1 candidates
+19:00:36 testpeer: [stick] remote candidates: 172.30.0.2:36136, 172.17.0.1:36136
+19:00:36 testpeer: [stick] stick derp key 30d992c0
+19:00:38 testpeer: [stick] no direct reply after 1.5 s; also trying DERP
+19:00:38 testpeer: [stick] handshake ok (Noise IKpsk2) via derp 30d992c0
+19:00:38 testpeer: handshake 1513 ms via derp
+RESULT {"handshake":true,"handshake_ms":3755,"first_path":"derp","sent":32,"echoed":32,"final_path":"derp","ratio":1.0,"expect":"derp","expect_ok":true}
+19:00:47 testpeer: derp connection closed
+19:00:47 testpeer: signalling closed (1000)

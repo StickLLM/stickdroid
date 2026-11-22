@@ -1,0 +1,7 @@
+07:49:23 sticklinkd: 1 paired peer(s) loaded
+07:49:23 sticklinkd: udp :60120
+07:49:23 sticklinkd: signalling session ended: ConnectionClosedError: received 1011 (internal error); then sent 1011 (internal error)
+07:49:24 sticklinkd: signalling session ended: ConnectionClosedError: received 1011 (internal error); then sent 1011 (internal error)
+07:49:26 sticklinkd: signalling session ended: ConnectionClosedError: received 1011 (internal error); then sent 1011 (internal error)
+07:49:31 sticklinkd: signalling session ended: ConnectionClosedError: received 1011 (internal error); then sent 1011 (internal error)
+07:49:35 sticklinkd: stopped

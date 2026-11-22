@@ -1,0 +1,6 @@
+PASS  2026-11-12 08:00 AST (America/Barbados)
+scripts/interop-companion.sh (fresh companiond per mode, mock A0, throwaway identities)
+- direct:  PASS  handshake_ms=2241  welcome, wait pulse, short echo, long 2-page answer
+- force-relay: PASS  handshake_ms=6846  same chat sequence over DERP
+- PASS no secrets or full keys in logs
+See peer-direct.log / peer-force-relay.log for RESULT JSON.

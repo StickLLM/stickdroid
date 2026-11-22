@@ -1,0 +1,281 @@
+   0.19s STATE Connecting(viaResume=false, failures=0)
+   0.29s   mc: signalling open
+   0.30s   mc: pair.joined
+   0.54s   mc: got offer
+   0.55s   mc: sent answer (1 candidates)
+   0.59s   mc: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+   0.61s   mc: noise ok
+   0.62s   mc: pair_psk+confirm ok
+   0.63s   mc: agent_ready resume=yes pins=true
+   0.63s link: always-on pins saved …3hWQ
+   0.63s STATE Live(durable=true, warning=null)
+CHECK PASS 1 scan → live durable state=Live(durable=true, warning=null)
+CHECK PASS 1 always-on pins persisted tag=…3hWQ home=_nxk9U2a
+CHECK PASS 1 phone static pinned (not wiped) 
+   2.36s chat[first] answer len=29 text=MOCK-A0 reply to: hello first
+CHECK PASS 1 chat 
+   2.36s   mc: session lost: harness: DC killed
+   2.36s link: transport lost: harness: DC killed
+   2.36s STATE Reconnecting(attempt=0, detail=Reconnecting…, failures=0)
+CHECK PASS 2 reconnecting shown 
+   2.36s STATE Reconnecting(attempt=1, detail=Reconnecting…, failures=0)
+   2.36s STATE Connecting(viaResume=true, failures=0)
+   2.38s   wss: signalling open (sess)
+   2.38s   wss: sess.ok
+   2.39s   wss: sess noise msg1 sent (96 B, psk=v2, prologue=97 B)
+   2.39s   wss: sess noise msg2 received (48 B) after 3 ms
+   2.39s   wss: sess noise ok (psk=v2)
+   2.40s link: always-on pins saved …3hWQ
+   2.40s STATE Live(durable=true, warning=null)
+   2.40s link: wss resumed …3hWQ
+   2.40s   wss: resume token rotated …cUjg
+CHECK PASS 2 WSS auto-resumed (no scan) after 0s
+CHECK PASS 2 pins kept (token rotated) 
+CHECK PASS 2 live is WSS sess (or Method C if stick still on DC) 
+   4.12s chat[resumed] answer len=31 text=MOCK-A0 reply to: hello resumed
+CHECK PASS 2 chat after resume 
+   4.12s   wss: sess dropped: harness: soft drop for Reconnect (rx_seq=6)
+   4.12s link: transport lost: harness: soft drop for Reconnect
+   4.12s STATE Reconnecting(attempt=0, detail=Reconnecting…, failures=0)
+   4.12s link: reconnect tap → RETRYING_NOW
+   4.12s STATE Reconnecting(attempt=1, detail=Reconnecting…, failures=0)
+   4.12s STATE Connecting(viaResume=true, failures=0)
+   4.12s   wss: sess ws closing code=1000 reason=bye
+   4.14s   wss: signalling open (sess)
+   4.14s   wss: sess.ok
+   4.14s   wss: sess noise msg1 sent (96 B, psk=v2, prologue=97 B)
+   4.14s link: reconnect tap → IN_FLIGHT
+   4.14s   wss: sess noise msg2 received (48 B) after 3 ms
+   4.15s   wss: sess noise ok (psk=v2)
+   4.15s   wss: sess.have n=6
+   4.15s link: always-on pins saved …cUjg
+   4.15s STATE Live(durable=true, warning=null)
+   4.15s link: wss resumed …cUjg
+   4.15s   wss: resume token rotated …uxuA
+   4.16s   wss: drop bad sess.frame
+   4.16s   wss: drop bad sess.frame
+   4.16s link: reconnect tap → ALREADY_LIVE
+   4.18s link: reconnect tap → ALREADY_LIVE
+   4.20s link: reconnect tap → ALREADY_LIVE
+   4.22s reconnect taps → [RETRYING_NOW, IN_FLIGHT, ALREADY_LIVE, ALREADY_LIVE, ALREADY_LIVE]
+CHECK PASS 2b Reconnect → live without QR after 104 ms
+CHECK PASS 2b exactly one resume attempt for 5 taps attempts=1 taps=[RETRYING_NOW, IN_FLIGHT, ALREADY_LIVE, ALREADY_LIVE, ALREADY_LIVE]
+   5.78s chat[reconnect-tap] answer len=37 text=MOCK-A0 reply to: hello reconnect-tap
+CHECK PASS 2b chat after Reconnect 
+CHECK PASS 2c live link is WSS sess link=SessSession
+   5.85s   a0: message_async multipart 3 file(s), 6721192 B
+  10.42s 2c answer (4611 ms): MOCK-A0 reply to: ATTACH what are these? | attachments: photo-20261120-233000.jpg (220000 B, sha256 4cb53f2e023f09c1); big data.bin (6500000 B, sha256 4e28d2b7575eae20); notes_ v1_.txt (28 B, sha256 e6cfcea655d7cd4b)
+CHECK PASS 2c reply received 
+CHECK PASS 2c image arrived intact 
+CHECK PASS 2c 6.5 MB file arrived intact (chunked+paced) 
+CHECK PASS 2c A0 safe_filename applied 
+  10.43s 2c steps: agent/null/A0: Thinking | tool/vision_load/Using tool 'vision_load' | util/null/Files loaded
+CHECK PASS 2c steps captured (tool vision_load with paths) 
+CHECK PASS 2c stick bridge refuses > 8 MiB with 413 status=413
+CHECK PASS 2c link still live after uploads 
+  15.71s chat[after-upload] answer len=36 text=MOCK-A0 reply to: hello after-upload
+CHECK PASS 2c chat after uploads 
+  20.92s   conv: submit: direct
+  20.94s 2d start: WAIT head of queue files=[]
+CHECK PASS 2d first reply running 
+  21.02s   conv: submit: queue (busy=true a0Running=true local=0 a0=0)
+  21.02s   conv: submit: queue (busy=true a0Running=true local=1 a0=0)
+  21.36s   conv: queued on A0: 0 file(s)
+  21.36s   a0: upload 1 file(s), 150239 B
+  21.43s   conv: queued on A0: 1 file(s)
+CHECK PASS 2d both queued on A0 while running queued=[true, true]
+  25.54s 2d done: WAIT head of queue -> MOCK-A0 reply to: WAIT stopped=false
+  25.55s 2d start: Q1 first queued files=[]
+  26.78s 2d done: Q1 first queued -> MOCK-A0 reply to: Q1 first queued stopped=false
+  26.78s 2d start: Q2 second queued files=[photo-20261121-100500.jpg]
+  28.42s 2d done: Q2 second queued -> MOCK-A0 reply to: Q2 second queued | attachments: photo-20261121-100500.jpg (150000 B, sha256 c73771b89e9202c0) stopped=false
+CHECK PASS 2d three replies done=3
+CHECK PASS 2d replies in order [WAIT head of queue, Q1 first queued, Q2 second queued]
+CHECK PASS 2d each reply matches its message MOCK-A0 reply to: WAIT / MOCK-A0 reply to: Q1 first queued / MOCK-A0 reply to: Q2 second queued | attachments: photo-20261121-100500.jpg (150
+CHECK PASS 2d A0 queue used: 2 queue_add, 1 upload, 2 auto-sent, 1 message_async, 0 interventions queue_add=2 upload=1 queue_sent=2 message_async=1 intervention=0
+  33.64s   conv: submit: direct
+  33.66s 2d start: WAIT before drop files=[]
+CHECK PASS 2d running before drop 
+  33.74s   conv: submit: queue (busy=true a0Running=true local=0 a0=0)
+  34.08s   conv: queued on A0: 0 file(s)
+  34.15s   wss: sess dropped: harness: drop with queue (rx_seq=57)
+  34.15s link: transport lost: harness: drop with queue
+  34.15s STATE Reconnecting(attempt=0, detail=Reconnecting…, failures=0)
+  34.15s STATE Reconnecting(attempt=1, detail=Reconnecting…, failures=0)
+  34.15s STATE Connecting(viaResume=true, failures=0)
+  34.15s   wss: sess ws closing code=1000 reason=bye
+  34.17s   wss: signalling open (sess)
+  34.18s   wss: sess.ok
+  34.18s   wss: sess noise msg1 sent (96 B, psk=v2, prologue=97 B)
+  34.18s   wss: sess noise msg2 received (48 B) after 3 ms
+  34.18s   wss: sess noise ok (psk=v2)
+  34.18s   wss: sess.have n=57
+  34.18s link: always-on pins saved …uxuA
+  34.18s STATE Live(durable=true, warning=null)
+  34.18s link: wss resumed …uxuA
+  34.19s   wss: resume token rotated …iMDw
+CHECK PASS 2d resumed after drop 
+  34.49s   conv: conversation: Refused
+  34.49s 2d interrupted: ws closing 1000
+  38.44s 2d done: WAIT before drop -> MOCK-A0 reply to: WAIT stopped=false
+  38.45s 2d start: Q3 queued across a drop files=[]
+  39.67s 2d done: Q3 queued across a drop -> MOCK-A0 reply to: Q3 queued across a drop stopped=false
+CHECK PASS 2d queued message delivered after resume done=[WAIT before drop, Q3 queued across a drop]
+CHECK PASS 2d same A0 chat after resume 
+CHECK PASS 2d order kept across drop 
+  39.76s   conv: submit: direct
+  39.81s 2d start: SLOW long task files=[]
+CHECK PASS 2d SLOW running 
+  39.86s   conv: submit: queue (busy=true a0Running=true local=0 a0=0)
+  39.86s   conv: submit: queue (busy=true a0Running=true local=1 a0=0)
+  40.23s   conv: queued on A0: 0 file(s)
+  40.24s   conv: queued on A0: 0 file(s)
+  42.30s 2d done: SLOW long task -> null stopped=true
+CHECK PASS 2d stopped turn reported 
+CHECK PASS 2d stop+clear: nothing else sent, A0 queue empty done=[SLOW long task] a0queue=0
+  48.39s   conv: submit: direct
+  48.40s 2d start: SLOW second task files=[]
+CHECK PASS 2d SLOW 2 running 
+  48.49s   conv: submit: queue (busy=true a0Running=true local=0 a0=0)
+  48.83s   conv: queued on A0: 0 file(s)
+  49.25s 2d done: SLOW second task -> null stopped=true
+  52.53s   conv: A0 queue idle; message_queue_send
+  52.94s 2d start: Q6 kept after stop files=[]
+  53.76s 2d done: Q6 kept after stop -> MOCK-A0 reply to: Q6 kept after stop stopped=false
+CHECK PASS 2d stop+keep: kept message answered done=[SLOW second task, Q6 kept after stop]
+CHECK PASS 2d stop+keep order 
+  53.82s 2d chats: Chat #6(b360), Chat #5(d328), Chat #4(f5da), Chat #3(6177), Chat #2(44b2), Chat #1(0791)
+CHECK PASS 2d chat list has this chat 
+  53.84s 2d history: WAIT head of queue | Q1 first queued | Q2 second queued | WAIT before drop | Q3 queued across a drop | SLOW long task | SLOW second task | Q6 kept after stop
+CHECK PASS 2d history from A0 in order (phone prompt hidden) 
+CHECK PASS 2d history keeps attachment names 
+  53.86s   conv: submit: queue (busy=false a0Running=false local=0 a0=0)
+  53.88s 2d start: hello new chat files=[]
+  55.12s 2d done: hello new chat -> MOCK-A0 reply to: hello new chat stopped=false
+CHECK PASS 2d new chat reply 
+CHECK PASS 2d new chat listed first (newest) and old one kept Chat #10, Chat #6, Chat #5, Chat #4, Chat #3, Chat #2, Chat #1
+CHECK PASS 2d new chat history is only its own 
+  55.17s   conv: submit: queue (busy=false a0Running=false local=0 a0=0)
+  55.18s 2d start: back in the first chat files=[]
+  56.42s 2d done: back in the first chat -> MOCK-A0 reply to: back in the first chat stopped=false
+CHECK PASS 2d switch back continues the first chat 
+CHECK PASS 2e idle after reply (busy cleared, would send direct) 
+  61.68s   conv: submit: direct
+  61.69s 2d start: E1 idle goes direct files=[]
+  62.92s 2d done: E1 idle goes direct -> MOCK-A0 reply to: E1 idle goes direct stopped=false
+CHECK PASS 2e idle send answered 
+CHECK PASS 2e idle send: 0 queue_add, 1 message_async, never shown as queued queue_add=0 message_async=1 tray=false
+  68.18s   conv: submit: direct
+  68.20s 2d start: WAIT E2 running reply files=[]
+CHECK PASS 2e reply running 
+  68.28s   conv: submit: queue (busy=true a0Running=true local=0 a0=0)
+CHECK PASS 2e send during reply is queued 
+  68.62s   conv: queued on A0: 0 file(s)
+  72.71s 2d done: WAIT E2 running reply -> MOCK-A0 reply to: WAIT stopped=false
+  72.72s 2d start: E3 sent during the reply files=[]
+  73.95s 2d done: E3 sent during the reply -> MOCK-A0 reply to: E3 sent during the reply stopped=false
+CHECK PASS 2e both answered in order [WAIT E2 running reply, E3 sent during the reply]
+CHECK PASS 2e busy clears after the queued reply 
+  73.99s   conv: submit: direct
+  74.00s 2d start: E4 after the reply goes direct files=[]
+  75.24s 2d done: E4 after the reply goes direct -> MOCK-A0 reply to: E4 after the reply goes direct stopped=false
+CHECK PASS 2e next send answered 
+CHECK PASS 2e A0 calls: 1 queue_add (E3 only), 2 message_async (E2, E4), 0 interventions; E4 never queued queue_add=1 message_async=2 intervention=0
+  80.50s   conv: submit: direct
+  80.51s   conv: message_async: model_not_configured
+  80.51s 2d start: NOMODELCFG hello world files=[]
+  80.51s 2d done: NOMODELCFG hello world -> null stopped=false
+CHECK PASS 2f model_not_configured → no-model notice at once done=[true]
+CHECK PASS 2f busy clears, not a link problem 
+  80.60s   conv: submit: direct
+  80.61s 2d start: NOMODEL hello world files=[]
+  81.43s 2d done: NOMODEL hello world -> No AI model is loaded on StickLLM right now, so I can't answer yet. Open Models on the StickLLM home screen, load a mode stopped=false
+CHECK PASS 2f stick no-model reply flagged 
+  81.50s   conv: submit: direct
+  81.51s   conv: conversation: A0Error 503 agent_not_running
+  81.51s 2d stick problem: Agent Zero isn't running on the stick (Agent Zero is starting...). Your message will be sent when it's ready.
+CHECK PASS 2f agent down reported with the stick's status [Agent Zero isn't running on the stick (Agent Zero is starting...). Your message will be sent when it's ready.]
+CHECK PASS 2f agent down: message shown as waiting, no 'Connection interrupted' Agent Zero isn't running on the stick (Agent Zero is starting...). Your message will be sent when it's ready.
+  81.78s 2d start: hello while agent down files=[]
+  81.78s 2d stick problem: null
+  83.01s 2d done: hello while agent down -> MOCK-A0 reply to: hello while agent down stopped=false
+CHECK PASS 2f sent once Agent Zero is back 
+CHECK PASS 2f problem cleared 
+CHECK PASS 2f link stayed live throughout 
+CHECK PASS 2d link still live 
+  83.11s   wss: sess dropped: harness: process killed (rx_seq=137)
+  83.11s   conv: conversation: MuxError
+  83.11s link: transport lost: harness: process killed
+  83.11s STATE Reconnecting(attempt=0, detail=Reconnecting…, failures=0)
+  83.11s link: cold start with saved resume …iMDw
+  83.11s STATE Reconnecting(attempt=0, detail=Reconnecting…, failures=0)
+  83.11s STATE Reconnecting(attempt=1, detail=Reconnecting…, failures=0)
+  83.11s STATE Connecting(viaResume=true, failures=0)
+  83.11s   wss: sess ws closing code=1000 reason=bye
+  83.14s   wss: signalling open (sess)
+  83.15s   wss: sess.ok
+  83.15s   wss: sess noise msg1 sent (96 B, psk=v2, prologue=97 B)
+  83.15s   wss: sess noise msg2 received (48 B) after 3 ms
+  83.15s   wss: sess noise ok (psk=v2)
+  83.15s   wss: sess.have n=137
+  83.15s link: always-on pins saved …iMDw
+  83.15s STATE Live(durable=true, warning=null)
+  83.15s link: wss resumed …iMDw
+  83.17s   wss: resume token rotated …mzBg
+CHECK PASS 3 cold start WSS resume without QR after 0s
+  84.86s chat[coldstart] answer len=33 text=MOCK-A0 reply to: hello coldstart
+CHECK PASS 3 chat after cold start 
+  84.86s STATE Disconnected
+  84.86s link: user disconnect
+CHECK PASS 4 state Disconnected 
+CHECK PASS 4 store cleared 
+  85.06s   wss: sess ws closing code=1000 reason=bye
+CHECK PASS 4 still Disconnected 
+ 205.18s STATE Connecting(viaResume=false, failures=0)
+ 205.20s   mc: signalling open
+ 205.20s   mc: pair.joined
+ 205.21s   mc: got offer
+ 205.22s   mc: sent answer (1 candidates)
+ 205.25s   mc: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+ 205.27s   mc: noise ok
+ 205.28s   mc: pair_psk+confirm ok
+ 205.28s   mc: agent_ready resume=yes pins=true
+ 205.28s link: always-on pins saved …EegA
+ 205.28s STATE Live(durable=true, warning=null)
+CHECK PASS 5 rescan → live 
+ 208.39s   mc: session lost: harness: after Generate
+ 208.39s link: transport lost: harness: after Generate
+ 208.39s STATE Reconnecting(attempt=0, detail=Reconnecting…, failures=0)
+ 208.39s STATE Reconnecting(attempt=1, detail=Reconnecting…, failures=0)
+ 208.39s STATE Connecting(viaResume=true, failures=0)
+ 208.41s   wss: signalling open (sess)
+ 208.41s   wss: sess ws closing code=4403 reason=revoked
+ 208.41s   wss: sess.resume err c=auth
+ 208.41s link: wss resume failed REVOKED
+ 208.41s link: session ended by stick (resume 4403); resume stopped
+ 208.41s STATE NeedScan(message=Session ended on the stick. Scan a new StickLink QR., revoked=true)
+CHECK PASS 5 Generate → NeedScan after 3s state=NeedScan(message=Session ended on the stick. Scan a new StickLink QR., revoked=true)
+CHECK PASS 5 pins cleared 
+CHECK PASS 5 revoked path (Session ended on the stick) state=NeedScan(message=Session ended on the stick. Scan a new StickLink QR., revoked=true)
+ 208.59s link: reconnect tap → SCAN_REQUIRED
+CHECK PASS 5 Reconnect after revoke → SCAN_REQUIRED tap=SCAN_REQUIRED
+CHECK PASS 5 no resume loop after revoke attempts+0 state=NeedScan(message=Session ended on the stick. Scan a new StickLink QR., revoked=true)
+CHECK PASS 5 kiosk has a new QR 
+ 325.33s STATE NeedScan(message=null, revoked=false)
+ 325.33s STATE Connecting(viaResume=false, failures=0)
+ 325.35s   mc: signalling open
+ 325.36s   mc: pair.joined
+ 325.38s   mc: got offer
+ 325.40s   mc: sent answer (1 candidates)
+ 325.43s   mc: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+ 325.45s   mc: noise ok
+ 325.46s   mc: pair_psk+confirm ok
+ 325.46s   mc: agent_ready resume=yes pins=true
+ 325.46s link: always-on pins saved …PPfA
+ 325.46s STATE Live(durable=true, warning=null)
+CHECK PASS 6 Scan QR after revoke → live state=Live(durable=true, warning=null)
+ 327.07s chat[after-revoke] answer len=36 text=MOCK-A0 reply to: hello after-revoke
+CHECK PASS 6 chat after rescan 
+ 327.07s STATE Disconnected
+ 327.07s link: user disconnect
+RESULT always-on-e2e fails=0 PASS

@@ -1,0 +1,24 @@
+# T09-fresh-scan-second-session  expect=ok  started 20:27:06 (America/Toronto)
+# args: --text fresh scan, new session --text2 DUMP hello --text3 WAIT please
+  0.02s harness: join link ok ws_host=127.0.0.1 debug=true
+  0.24s harness: signalling open
+  0.26s harness: pair.joined
+  0.48s harness: got offer
+  0.49s harness: sent answer (1 candidates)
+  0.52s harness: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+  0.54s harness: noise ok
+  0.55s harness: pair_psk+confirm ok
+  0.55s harness: agent_ready
+  0.55s harness: SESSION up path=direct local=host remote=host proto=udp
+  2.10s harness: ANSWER ctx=9cea6b… len=41 text=MOCK-A0 reply to: fresh scan, new session
+  3.63s harness: ANSWER ctx=9cea6b… len=358 text=Hello! Here are the details you requested:
+
+- **Current Date and Time**: 2026-11-19 17:22:27 EST
+- **Agent Information**
+  3.63s harness: FILTERED dump -> Hello!
+  5.67s harness: progress: Using a tool
+  6.69s harness: progress: Searching
+  8.21s harness: ANSWER ctx=9cea6b… len=22 text=MOCK-A0 reply to: WAIT
+  8.21s harness: THINKING bubble after 4576ms -> Thinking… 4s | Searching
+  8.22s harness: closed
+RESULT outcome=ok expect=ok PASS

@@ -1,0 +1,131 @@
+   0.19s STATE Connecting(viaResume=false)
+   0.28s   mc: signalling open
+   0.29s   mc: pair.joined
+   0.58s   mc: got offer
+   0.59s   mc: sent answer (1 candidates)
+   0.63s   mc: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+   0.65s   mc: noise ok
+   0.66s   mc: pair_psk+confirm ok
+   0.67s   mc: agent_ready resume=yes pins=true
+   0.67s link: always-on pins saved …zZFw
+   0.67s STATE Live(durable=true, warning=null)
+CHECK PASS 1 scan → live durable state=Live(durable=true, warning=null)
+CHECK PASS 1 always-on pins persisted tag=…zZFw home=_nxk9U2a
+CHECK PASS 1 phone static pinned (not wiped) 
+   2.35s chat[first] answer len=29 text=MOCK-A0 reply to: hello first
+CHECK PASS 1 chat 
+   2.36s   mc: session lost: harness: DC killed
+   2.36s link: transport lost: harness: DC killed
+   2.36s STATE Reconnecting(attempt=0, detail=Reconnecting…)
+CHECK PASS 2 reconnecting shown 
+   2.36s STATE Reconnecting(attempt=1, detail=Reconnecting…)
+   2.36s STATE Connecting(viaResume=true)
+   2.37s   wss: signalling open (sess)
+   2.38s   wss: sess.ok
+   2.38s   wss: sess noise ok
+   2.38s link: always-on pins saved …zZFw
+   2.39s STATE Live(durable=true, warning=null)
+   2.39s link: wss resumed …zZFw
+CHECK PASS 2 WSS auto-resumed (no scan) after 0s
+CHECK PASS 2 same token kept 
+CHECK PASS 2 live is WSS sess (or Method C if stick still on DC) 
+   4.11s chat[resumed] answer len=31 text=MOCK-A0 reply to: hello resumed
+CHECK PASS 2 chat after resume 
+   4.11s link: cold start with saved resume …zZFw
+   4.11s STATE Reconnecting(attempt=0, detail=Reconnecting…)
+   4.12s STATE Reconnecting(attempt=1, detail=Reconnecting…)
+   4.12s STATE Connecting(viaResume=true)
+   4.13s   wss: signalling open (sess)
+   4.14s   wss: sess.ok
+   4.14s link: wss resume failed HANDSHAKE
+   4.14s STATE Reconnecting(attempt=1, detail=Reconnecting… (link attempt failed, retrying))
+   6.14s STATE Reconnecting(attempt=2, detail=Reconnecting…)
+   6.14s STATE Connecting(viaResume=true)
+   6.16s   wss: signalling open (sess)
+   6.16s   wss: sess.ok
+  66.17s link: wss resume failed HANDSHAKE
+  66.17s STATE Reconnecting(attempt=2, detail=Reconnecting… (link attempt failed, retrying))
+  70.17s STATE Reconnecting(attempt=3, detail=Reconnecting…)
+  70.17s STATE Connecting(viaResume=true)
+  70.20s   wss: signalling open (sess)
+  70.20s   wss: sess.ok
+ 127.16s link: wss resume failed REVOKED
+ 127.16s STATE NeedScan(message=Your stick ended this pairing (Generate or revoke). Scan a new code on the stick.)
+CHECK FAIL 3 cold start WSS resume without QR after 150s
+CHECK FAIL 3 chat after cold start 
+ 154.24s STATE Disconnected
+ 154.24s link: user disconnect
+CHECK PASS 4 state Disconnected 
+CHECK PASS 4 store cleared 
+CHECK PASS 4 still Disconnected 
+ 157.45s STATE Connecting(viaResume=false)
+ 157.47s   mc: signalling open
+ 157.47s   mc: pair.joined
+ 157.48s   mc: got offer
+ 157.49s   mc: sent answer (1 candidates)
+ 157.51s   mc: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+ 157.54s   mc: noise ok
+ 157.55s   mc: pair_psk+confirm ok
+ 157.55s   mc: agent_ready resume=yes pins=true
+ 157.55s link: always-on pins saved …fdQA
+ 157.55s STATE Live(durable=true, warning=null)
+CHECK PASS 5 rescan → live 
+ 188.56s   mc: session lost: no traffic for 30s
+ 188.56s link: transport lost: no traffic for 30s
+ 188.56s STATE Reconnecting(attempt=0, detail=Reconnecting…)
+ 188.56s STATE Reconnecting(attempt=1, detail=Reconnecting…)
+ 188.56s STATE Connecting(viaResume=true)
+ 188.59s link: wss resume failed NETWORK
+ 188.59s STATE Reconnecting(attempt=1, detail=Reconnecting… (no network yet))
+ 188.59s STATE Reconnecting(attempt=2, detail=Reconnecting…)
+ 188.59s STATE Connecting(viaResume=true)
+ 188.60s link: wss resume failed NETWORK
+ 188.60s STATE Reconnecting(attempt=2, detail=Reconnecting… (no network yet))
+ 192.61s STATE Reconnecting(attempt=3, detail=Reconnecting…)
+ 192.61s STATE Connecting(viaResume=true)
+ 192.62s link: wss resume failed NETWORK
+ 192.62s STATE Reconnecting(attempt=3, detail=Reconnecting… (no network yet))
+ 200.62s STATE Reconnecting(attempt=4, detail=Reconnecting…)
+ 200.62s STATE Connecting(viaResume=true)
+ 200.64s link: wss resume failed NETWORK
+ 200.64s STATE Reconnecting(attempt=4, detail=Reconnecting… (no network yet))
+ 215.64s STATE Reconnecting(attempt=5, detail=Reconnecting…)
+ 215.64s STATE Connecting(viaResume=true)
+ 215.67s link: wss resume failed NETWORK
+ 215.67s STATE Reconnecting(attempt=5, detail=Reconnecting… (no network yet))
+ 230.67s STATE Reconnecting(attempt=6, detail=Reconnecting…)
+ 230.67s STATE Connecting(viaResume=true)
+ 230.69s link: wss resume failed NETWORK
+ 230.69s STATE Reconnecting(attempt=6, detail=Reconnecting… (no network yet))
+ 245.69s STATE Reconnecting(attempt=7, detail=Reconnecting…)
+ 245.69s STATE Connecting(viaResume=true)
+ 245.72s link: wss resume failed NETWORK
+ 245.72s STATE Reconnecting(attempt=7, detail=Reconnecting… (no network yet))
+ 260.72s STATE Reconnecting(attempt=8, detail=Reconnecting…)
+ 260.72s STATE Connecting(viaResume=true)
+ 260.76s link: wss resume failed NETWORK
+ 260.76s STATE Reconnecting(attempt=8, detail=Reconnecting… (no network yet))
+ 275.76s STATE Reconnecting(attempt=9, detail=Reconnecting…)
+ 275.76s STATE Connecting(viaResume=true)
+ 275.78s link: wss resume failed NETWORK
+ 275.78s STATE Reconnecting(attempt=9, detail=Reconnecting… (no network yet))
+ 290.79s STATE Reconnecting(attempt=10, detail=Reconnecting…)
+ 290.79s STATE Connecting(viaResume=true)
+ 290.81s link: wss resume failed NETWORK
+ 290.81s STATE Reconnecting(attempt=10, detail=Reconnecting… (no network yet))
+ 305.81s STATE Reconnecting(attempt=11, detail=Reconnecting…)
+ 305.81s STATE Connecting(viaResume=true)
+ 305.83s link: wss resume failed NETWORK
+ 305.83s STATE Reconnecting(attempt=11, detail=Reconnecting… (no network yet))
+ 320.83s STATE Reconnecting(attempt=12, detail=Reconnecting…)
+ 320.83s STATE Connecting(viaResume=true)
+ 320.86s link: wss resume failed NETWORK
+ 320.86s STATE Reconnecting(attempt=12, detail=Reconnecting… (no network yet))
+ 335.86s STATE Reconnecting(attempt=13, detail=Reconnecting…)
+ 335.86s STATE Connecting(viaResume=true)
+ 335.88s link: wss resume failed NETWORK
+ 335.88s STATE Reconnecting(attempt=13, detail=Reconnecting… (no network yet))
+CHECK FAIL 5 Generate → NeedScan after 180s state=Reconnecting(attempt=13, detail=Reconnecting… (no network yet))
+CHECK FAIL 5 pins cleared 
+CHECK PASS 5 kiosk has a new QR 
+RESULT always-on-e2e fails=4 FAIL

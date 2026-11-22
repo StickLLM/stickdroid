@@ -1,0 +1,7 @@
+# T05-reuse-invite-while-live  expect=STICK_BUSY  started 17:44:50 (America/Toronto)
+# args: --offer-timeout-ms 15000
+  0.03s harness: join link ok ws_host=127.0.0.1 debug=true
+  0.28s harness: signalling open
+  0.30s harness: pair.joined
+ 15.55s harness: MethodCError STICK_BUSY: no offer from stick | user: The stick didn't answer. It may already be chatting with another phone; close that session or Refresh the QR.
+RESULT outcome=STICK_BUSY expect=STICK_BUSY PASS

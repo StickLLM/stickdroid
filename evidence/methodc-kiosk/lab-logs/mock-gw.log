@@ -1,0 +1,24 @@
+14:29:06 mock-gw: listening https://127.0.0.1:8443
+14:29:46 mock-gw: lab grant redeemed -> Bearer minted
+14:29:46 mock-gw: csrf_token issued (session cookie kept by bridge jar)
+14:29:46 mock-gw: message_async ctx=9a27… len=25
+14:29:47 mock-gw: message_async ctx=9a27… len=21
+14:29:49 mock-gw: message_async ctx=9a27… len=11
+14:29:50 mock-gw: message_async ctx=9a27… len=9
+14:29:52 mock-gw: stop requested
+14:31:41 mock-gw: lab grant redeemed -> Bearer minted
+14:31:41 mock-gw: csrf_token issued (session cookie kept by bridge jar)
+14:31:41 mock-gw: message_async ctx=8ed4… len=23
+14:32:55 mock-gw: lab grant redeemed -> Bearer minted
+14:32:55 mock-gw: csrf_token issued (session cookie kept by bridge jar)
+14:32:55 mock-gw: message_async ctx=2b77… len=25
+14:32:56 mock-gw: message_async ctx=2b77… len=21
+14:32:58 mock-gw: message_async ctx=2b77… len=11
+14:32:59 mock-gw: message_async ctx=2b77… len=9
+14:33:01 mock-gw: stop requested
+14:34:51 mock-gw: lab grant redeemed -> Bearer minted
+14:34:51 mock-gw: csrf_token issued (session cookie kept by bridge jar)
+14:34:51 mock-gw: message_async ctx=8fa1… len=23
+14:34:55 mock-gw: lab grant redeemed -> Bearer minted
+14:34:55 mock-gw: csrf_token issued (session cookie kept by bridge jar)
+14:34:55 mock-gw: message_async ctx=eede… len=21

@@ -1,0 +1,4 @@
+# T02-corrupt-P-short  expect=BAD_LINK  started 18:07:48 (America/Toronto)
+# args: 
+  0.02s harness: JoinLinkException: bad StickLink QR (bad P)
+RESULT outcome=BAD_LINK expect=BAD_LINK PASS

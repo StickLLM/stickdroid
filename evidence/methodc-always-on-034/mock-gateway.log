@@ -1,0 +1,41 @@
+10:08:22 mock-gw: listening https://127.0.0.1:8444
+10:09:19 mock-gw: lab grant redeemed -> Bearer minted
+10:09:19 mock-gw: csrf_token issued (session cookie kept by bridge jar)
+10:09:19 mock-gw: message_async ctx=f798… len=192
+10:09:21 mock-gw: csrf_token reused
+10:09:21 mock-gw: message_async ctx=5d52… len=194
+10:09:23 mock-gw: csrf_token reused
+10:09:23 mock-gw: message_async ctx=798f… len=200
+10:09:25 mock-gw: csrf_token reused
+10:09:27 mock-gw: message_async multipart ctx=93bf… len=203 files=3 bytes=6721192
+10:09:33 mock-gw: csrf_token reused
+10:09:33 mock-gw: message_async ctx=5bc1… len=199
+10:09:40 mock-gw: csrf_token reused
+10:09:40 mock-gw: message_async ctx=f1da… len=199
+10:09:40 mock-gw: queue add ctx=f1da… files=0 len=196 queue=1
+10:09:40 mock-gw: upload files=1 bytes=150239
+10:09:40 mock-gw: queue add ctx=f1da… files=1 len=197 queue=2
+10:09:44 mock-gw: queue send ctx=f1da… files=0 (from queue)
+10:09:45 mock-gw: queue send ctx=f1da… files=1 (from queue)
+10:09:52 mock-gw: message_async ctx=f1da… len=197
+10:09:53 mock-gw: queue add ctx=f1da… files=0 len=204 queue=1
+10:09:53 mock-gw: csrf_token reused
+10:09:57 mock-gw: queue send ctx=f1da… files=0 (from queue)
+10:09:58 mock-gw: message_async ctx=f1da… len=195
+10:09:59 mock-gw: queue add ctx=f1da… files=0 len=203 queue=1
+10:09:59 mock-gw: queue add ctx=f1da… files=0 len=199 queue=2
+10:10:00 mock-gw: stop requested
+10:10:07 mock-gw: csrf_token reused
+10:10:07 mock-gw: message_async ctx=f1da… len=197
+10:10:07 mock-gw: queue add ctx=f1da… files=0 len=199 queue=1
+10:10:07 mock-gw: stop requested
+10:10:11 mock-gw: queue send ctx=f1da… files=0 (message_queue_send)
+10:10:12 mock-gw: csrf_token reused
+10:10:12 mock-gw: message_async ctx=77dd… len=195
+10:10:14 mock-gw: message_async ctx=f1da… len=203
+10:10:15 mock-gw: csrf_token reused
+10:10:15 mock-gw: message_async ctx=04ac… len=196
+10:12:17 mock-gw: lab grant redeemed -> Bearer minted
+10:14:17 mock-gw: lab grant redeemed -> Bearer minted
+10:14:17 mock-gw: csrf_token issued (session cookie kept by bridge jar)
+10:14:17 mock-gw: message_async ctx=6459… len=199

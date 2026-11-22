@@ -1,0 +1,14 @@
+21:29:43 sticklinkd: 1 paired peer(s) loaded
+21:29:43 sticklinkd: udp :46668
+21:29:43 sticklinkd: signalling ready (home _nxk9U…, relays ['tor1'])
+21:29:43 sticklinkd: TEST: signing keys fetched from http://127.0.0.1:8800/v1/keys (not pinned): ['test-1']
+21:29:43 sticklinkd: revoked set in sync (rc 0, cursor 0)
+21:29:43 sticklinkd: relay permit still fresh; not re-registering
+21:29:43 sticklinkd: derp connected http://127.0.0.1:3341/derp as 2d91943e
+21:29:45 sticklinkd: [stickdroid] joined signalling (c58); sending candidates
+21:29:47 sticklinkd: [stickdroid] sent 2 candidates + derp key
+21:29:47 sticklinkd: [stickdroid] remote candidates: none
+21:29:48 sticklinkd: [stickdroid] peer derp key 01800cc8
+21:29:48 sticklinkd: [stickdroid] handshake ok (Noise IKpsk2, pinned key e708e4c0) via derp 01800cc8
+21:29:56 sticklinkd: [stickdroid] left signalling (c58)
+21:29:56 sticklinkd: stopped

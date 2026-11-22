@@ -1,0 +1,21 @@
+08:00:03 sticklinkd: 1 paired peer(s) loaded
+08:00:03 sticklinkd: companiond connected (/tmp/stickdroid-companion.fHid1D/companiond.sock)
+08:00:03 sticklinkd: udp :56104
+08:00:03 sticklinkd: signalling ready (home _nxk9U…, relays ['tor1'])
+08:00:03 sticklinkd: TEST: /v1/keys fetch failed: HTTPError
+08:00:03 sticklinkd: revoked page not verified (revoked page: kid 'test-1' is not pinned); applying remove-only, cursor kept
+08:00:03 sticklinkd: slot.add ok for stickdroid
+08:00:03 sticklinkd: relay.reg ok, node key d5a2a0f8
+08:00:03 sticklinkd: derp connected http://127.0.0.1:3341/derp as d5a2a0f8
+08:00:05 sticklinkd: [stickdroid] joined signalling (c1); sending candidates
+08:00:07 sticklinkd: [stickdroid] sent 2 candidates + derp key
+08:00:07 sticklinkd: [stickdroid] remote candidates: 172.30.0.2:35258
+08:00:07 sticklinkd: [stickdroid] handshake ok (Noise IKpsk2, pinned key b2ed8b8b) via direct 172.30.0.2:35258
+08:00:07 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:35258
+08:00:07 sticklinkd: [stickdroid] app data 79 B via direct 172.30.0.2:35258
+08:00:07 sticklinkd: [stickdroid] app data 115 B via direct 172.30.0.2:35258
+08:00:07 sticklinkd: [stickdroid] app data 69 B via direct 172.30.0.2:35258
+08:00:07 sticklinkd: [stickdroid] app data 105 B via direct 172.30.0.2:35258
+08:00:07 sticklinkd: [stickdroid] peer derp key af8d8c8f
+08:00:08 sticklinkd: [stickdroid] left signalling (c1)
+08:00:08 sticklinkd: stopped

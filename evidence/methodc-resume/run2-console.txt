@@ -1,0 +1,123 @@
+   0.21s STATE Connecting(viaResume=false)
+   0.28s   mc: signalling open
+   0.29s   mc: pair.joined
+   0.53s   mc: got offer
+   0.54s   mc: sent answer (1 candidates)
+   0.57s   mc: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+   0.59s   mc: noise ok
+   0.60s   mc: pair_psk+confirm ok
+   0.60s   mc: agent_ready resume=yes
+   0.60s link: resume token saved …NfQg
+   0.60s STATE Live(durable=true, warning=null)
+CHECK PASS 1 scan → live durable state=Live(durable=true, warning=null)
+CHECK PASS 1 resume token persisted tag=…NfQg origin=https://127.0.0.1:8801
+   2.16s chat[first] answer len=29 text=MOCK-A0 reply to: hello first
+CHECK PASS 1 chat 
+   2.16s   mc: session lost: harness: DC killed
+   2.16s link: transport lost: harness: DC killed
+   2.16s STATE Reconnecting(attempt=0, detail=Reconnecting…)
+CHECK PASS 2 reconnecting shown 
+   2.18s STATE Reconnecting(attempt=1, detail=Reconnecting… (waiting for the stick))
+   2.18s STATE Reconnecting(attempt=2, detail=Reconnecting… (waiting for the stick))
+   4.20s STATE Reconnecting(attempt=3, detail=Reconnecting… (waiting for the stick))
+   6.21s STATE Connecting(viaResume=true)
+   6.21s link: resume offer 9dcf07f8bf8ac13e; connecting
+   6.23s   mc: signalling open
+   6.23s   mc: pair.joined
+   6.24s   mc: got offer
+   6.24s   mc: sent answer (1 candidates)
+   6.27s   mc: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+   6.29s   mc: noise ok
+   6.30s   mc: pair_psk+confirm ok
+   6.30s   mc: agent_ready resume=yes
+   6.30s link: resume token saved …NfQg
+   6.30s STATE Live(durable=true, warning=null)
+   6.30s link: resumed …NfQg
+CHECK PASS 2 auto-resumed (no scan) after 4s
+CHECK PASS 2 same token kept 
+   7.90s chat[resumed] answer len=31 text=MOCK-A0 reply to: hello resumed
+CHECK PASS 2 chat after resume 
+   7.91s   mc: session lost: harness: process killed
+   7.91s link: transport lost: harness: process killed
+   7.91s STATE Reconnecting(attempt=0, detail=Reconnecting…)
+   7.91s link: cold start with saved resume …NfQg
+   7.91s STATE Reconnecting(attempt=0, detail=Reconnecting…)
+   7.92s STATE Connecting(viaResume=true)
+   7.92s link: resume offer 9dcf07f8bf8ac13e; connecting
+   7.93s link: resume connect failed MAILBOX_GONE
+   7.94s STATE Reconnecting(attempt=1, detail=Reconnecting… (waiting for the stick))
+   9.95s STATE Connecting(viaResume=true)
+   9.95s link: resume offer 94899fa5e561b08e; connecting
+   9.97s   mc: signalling open
+   9.97s   mc: pair.joined
+   9.98s   mc: got offer
+   9.98s   mc: sent answer (1 candidates)
+  10.01s   mc: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+  10.04s   mc: noise ok
+  10.04s   mc: pair_psk+confirm ok
+  10.04s   mc: agent_ready resume=yes
+  10.04s link: resume token saved …NfQg
+  10.04s STATE Live(durable=true, warning=null)
+  10.04s link: resumed …NfQg
+CHECK PASS 3 cold start resumed without QR after 2s
+  11.65s chat[coldstart] answer len=33 text=MOCK-A0 reply to: hello coldstart
+CHECK PASS 3 chat after cold start 
+  11.65s STATE Disconnected
+  11.65s link: user disconnect
+CHECK PASS 4 state Disconnected 
+CHECK PASS 4 store cleared 
+CHECK PASS 4 old token no longer offers a join GET /v1/resume → 404
+CHECK PASS 4 still Disconnected (no retry loop) 
+  72.14s STATE Connecting(viaResume=false)
+  72.16s   mc: signalling open
+  72.16s   mc: pair.joined
+  72.16s   mc: got offer
+  72.17s   mc: sent answer (1 candidates)
+  72.19s   mc: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+  72.22s   mc: noise ok
+  72.23s   mc: pair_psk+confirm ok
+  72.23s   mc: agent_ready resume=yes
+  72.23s link: resume token saved …YWZA
+  72.23s STATE Live(durable=true, warning=null)
+CHECK PASS 5 rescan → live 
+ 103.24s   mc: session lost: no traffic for 30s
+ 103.24s link: transport lost: no traffic for 30s
+ 103.24s STATE Reconnecting(attempt=0, detail=Reconnecting…)
+ 103.26s STATE Reconnecting(attempt=1, detail=Reconnecting… (waiting for the stick))
+ 103.27s STATE Reconnecting(attempt=2, detail=Reconnecting… (waiting for the stick))
+ 105.28s STATE Reconnecting(attempt=3, detail=Reconnecting… (waiting for the stick))
+ 107.29s STATE Reconnecting(attempt=4, detail=Reconnecting… (waiting for the stick))
+ 109.30s STATE Reconnecting(attempt=5, detail=Reconnecting… (waiting for the stick))
+ 111.31s STATE Reconnecting(attempt=6, detail=Reconnecting… (waiting for the stick))
+ 113.32s STATE Reconnecting(attempt=7, detail=Reconnecting… (waiting for the stick))
+ 115.33s STATE Reconnecting(attempt=8, detail=Reconnecting… (waiting for the stick))
+ 117.34s STATE Reconnecting(attempt=9, detail=Reconnecting… (waiting for the stick))
+ 119.35s STATE Reconnecting(attempt=10, detail=Reconnecting… (waiting for the stick))
+ 121.37s STATE Reconnecting(attempt=11, detail=Reconnecting… (waiting for the stick))
+ 123.38s STATE Reconnecting(attempt=12, detail=Reconnecting… (waiting for the stick))
+ 125.39s STATE Reconnecting(attempt=13, detail=Reconnecting… (waiting for the stick))
+ 127.40s STATE Reconnecting(attempt=14, detail=Reconnecting… (waiting for the stick))
+ 129.41s STATE Reconnecting(attempt=15, detail=Reconnecting… (waiting for the stick))
+ 131.42s STATE Reconnecting(attempt=16, detail=Reconnecting… (waiting for the stick))
+ 133.43s STATE Reconnecting(attempt=17, detail=Reconnecting… (waiting for the stick))
+ 135.44s STATE Reconnecting(attempt=18, detail=Reconnecting… (waiting for the stick))
+ 137.45s STATE Reconnecting(attempt=19, detail=Reconnecting… (waiting for the stick))
+ 139.46s STATE Reconnecting(attempt=20, detail=Reconnecting… (waiting for the stick))
+ 141.47s STATE Reconnecting(attempt=21, detail=Reconnecting… (waiting for the stick))
+ 143.48s STATE Reconnecting(attempt=22, detail=Reconnecting… (waiting for the stick))
+ 145.50s STATE Reconnecting(attempt=23, detail=Reconnecting… (waiting for the stick))
+ 147.50s STATE Reconnecting(attempt=24, detail=Reconnecting… (waiting for the stick))
+ 149.52s STATE Reconnecting(attempt=25, detail=Reconnecting… (waiting for the stick))
+ 151.53s STATE Reconnecting(attempt=26, detail=Reconnecting… (waiting for the stick))
+ 153.54s STATE Reconnecting(attempt=27, detail=Reconnecting… (waiting for the stick))
+ 155.55s STATE Reconnecting(attempt=28, detail=Reconnecting… (waiting for the stick))
+ 157.56s STATE Reconnecting(attempt=29, detail=Reconnecting… (waiting for the stick))
+ 159.56s STATE Reconnecting(attempt=30, detail=Reconnecting… (waiting for the stick))
+ 161.58s STATE Reconnecting(attempt=31, detail=Reconnecting… (waiting for the stick))
+ 163.59s link: resume give up: stick stopped offering reconnects clear=true
+ 163.59s STATE NeedScan(message=Your stick isn't offering a reconnect (a new code was generated, or the stick restarted). Scan a new code on the stick.)
+CHECK PASS 5 phone told: scan new code after 91s state=NeedScan(message=Your stick isn't offering a reconnect (a new code was generated, or the stick restarted). Scan a new code on the stick.)
+CHECK PASS 5 dead token cleared 
+ 163.62s OBSERVE after Generate: GET /v1/resume with the step-5 token → 404
+CHECK PASS 5 kiosk has a new QR 
+RESULT resume-e2e fails=0 PASS

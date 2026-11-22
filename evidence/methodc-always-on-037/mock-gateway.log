@@ -1,0 +1,48 @@
+17:13:21 mock-gw: listening https://127.0.0.1:8444
+17:13:25 mock-gw: lab grant redeemed -> Bearer minted
+17:13:25 mock-gw: csrf_token issued (session cookie kept by bridge jar)
+17:13:25 mock-gw: message_async ctx=aaa8… len=192
+17:13:27 mock-gw: csrf_token reused
+17:13:27 mock-gw: message_async ctx=36dd… len=194
+17:13:28 mock-gw: csrf_token reused
+17:13:28 mock-gw: message_async ctx=1f57… len=200
+17:13:30 mock-gw: csrf_token reused
+17:13:33 mock-gw: message_async multipart ctx=c720… len=203 files=3 bytes=6721192
+17:13:38 mock-gw: csrf_token reused
+17:13:38 mock-gw: message_async ctx=d9c7… len=199
+17:13:45 mock-gw: csrf_token reused
+17:13:45 mock-gw: message_async ctx=d0aa… len=199
+17:13:45 mock-gw: queue add ctx=d0aa… files=0 len=196 queue=1
+17:13:45 mock-gw: upload files=1 bytes=150239
+17:13:45 mock-gw: queue add ctx=d0aa… files=1 len=197 queue=2
+17:13:49 mock-gw: queue send ctx=d0aa… files=0 (from queue)
+17:13:51 mock-gw: queue send ctx=d0aa… files=1 (from queue)
+17:13:58 mock-gw: message_async ctx=d0aa… len=197
+17:13:58 mock-gw: queue add ctx=d0aa… files=0 len=204 queue=1
+17:13:59 mock-gw: csrf_token reused
+17:14:02 mock-gw: queue send ctx=d0aa… files=0 (from queue)
+17:14:04 mock-gw: message_async ctx=d0aa… len=195
+17:14:04 mock-gw: queue add ctx=d0aa… files=0 len=203 queue=1
+17:14:04 mock-gw: queue add ctx=d0aa… files=0 len=199 queue=2
+17:14:06 mock-gw: stop requested
+17:14:12 mock-gw: csrf_token reused
+17:14:12 mock-gw: message_async ctx=d0aa… len=197
+17:14:13 mock-gw: queue add ctx=d0aa… files=0 len=199 queue=1
+17:14:13 mock-gw: stop requested
+17:14:16 mock-gw: queue send ctx=d0aa… files=0 (message_queue_send)
+17:14:18 mock-gw: csrf_token reused
+17:14:18 mock-gw: message_async ctx=7ed0… len=195
+17:14:19 mock-gw: message_async ctx=d0aa… len=203
+17:14:26 mock-gw: message_async ctx=d0aa… len=200
+17:14:32 mock-gw: message_async ctx=d0aa… len=202
+17:14:32 mock-gw: queue add ctx=d0aa… files=0 len=205 queue=1
+17:14:37 mock-gw: queue send ctx=d0aa… files=0 (from queue)
+17:14:38 mock-gw: message_async ctx=d0aa… len=211
+17:14:44 mock-gw: message_async ctx=d0aa… len=200
+17:14:46 mock-gw: message_async ctx=d0aa… len=203
+17:14:47 mock-gw: csrf_token reused
+17:14:47 mock-gw: message_async ctx=f24c… len=196
+17:16:49 mock-gw: lab grant redeemed -> Bearer minted
+17:18:49 mock-gw: lab grant redeemed -> Bearer minted
+17:18:49 mock-gw: csrf_token issued (session cookie kept by bridge jar)
+17:18:49 mock-gw: message_async ctx=4940… len=199

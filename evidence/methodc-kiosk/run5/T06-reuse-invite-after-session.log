@@ -1,0 +1,5 @@
+# T06-reuse-invite-after-session  expect=MAILBOX_GONE  started 18:58:10 (America/Toronto)
+# args: 
+  0.02s harness: join link ok ws_host=127.0.0.1 debug=true
+  0.27s harness: MethodCError MAILBOX_GONE: mailbox refused (404) | user: The kiosk no longer accepts this QR (expired, already used, or refreshed). Tap Refresh StickLink QR and scan the new one.
+RESULT outcome=MAILBOX_GONE expect=MAILBOX_GONE PASS

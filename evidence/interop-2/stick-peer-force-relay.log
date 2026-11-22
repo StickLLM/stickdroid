@@ -1,0 +1,14 @@
+07:50:43 sticklinkd: 1 paired peer(s) loaded
+07:50:43 sticklinkd: udp :44343
+07:50:43 sticklinkd: signalling ready (home _nxk9U…, relays ['tor1'])
+07:50:43 sticklinkd: TEST: /v1/keys fetch failed: HTTPError
+07:50:43 sticklinkd: revoked page not verified (revoked page: kid 'test-1' is not pinned); applying remove-only, cursor kept
+07:50:43 sticklinkd: relay permit still fresh; not re-registering
+07:50:43 sticklinkd: derp connected http://127.0.0.1:3341/derp as 96cea139
+07:50:45 sticklinkd: [stickdroid] joined signalling (c2); sending candidates
+07:50:47 sticklinkd: [stickdroid] sent 2 candidates + derp key
+07:50:47 sticklinkd: [stickdroid] remote candidates: none
+07:50:48 sticklinkd: [stickdroid] peer derp key a152851d
+07:50:49 sticklinkd: [stickdroid] handshake ok (Noise IKpsk2, pinned key 477b6fbe) via derp a152851d
+07:50:56 sticklinkd: [stickdroid] left signalling (c2)
+07:50:56 sticklinkd: stopped

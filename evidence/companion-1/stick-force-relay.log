@@ -1,0 +1,17 @@
+08:00:08 sticklinkd: 1 paired peer(s) loaded
+08:00:08 sticklinkd: companiond connected (/tmp/stickdroid-companion.fHid1D/companiond.sock)
+08:00:08 sticklinkd: udp :51510 FORCE-RELAY (direct UDP disabled)
+08:00:08 sticklinkd: signalling ready (home _nxk9U…, relays ['tor1'])
+08:00:08 sticklinkd: TEST: /v1/keys fetch failed: HTTPError
+08:00:08 sticklinkd: revoked page not verified (revoked page: kid 'test-1' is not pinned); applying remove-only, cursor kept
+08:00:08 sticklinkd: relay permit still fresh; not re-registering
+08:00:08 sticklinkd: derp connected http://127.0.0.1:3341/derp as d5a2a0f8
+08:00:10 sticklinkd: [stickdroid] joined signalling (c2); sending candidates
+08:00:10 sticklinkd: [stickdroid] sent 0 candidates (force-relay: none) + derp key
+08:00:10 sticklinkd: [stickdroid] remote candidates: none
+08:00:10 sticklinkd: [stickdroid] peer derp key af8d8c8f
+08:00:17 sticklinkd: [stickdroid] handshake ok (Noise IKpsk2, pinned key b2ed8b8b) via derp af8d8c8f
+08:00:17 sticklinkd: [stickdroid] app data 79 B via derp af8d8c8f
+08:00:17 sticklinkd: [stickdroid] app data 115 B via derp af8d8c8f
+08:00:17 sticklinkd: [stickdroid] left signalling (c2)
+08:00:17 sticklinkd: stopped

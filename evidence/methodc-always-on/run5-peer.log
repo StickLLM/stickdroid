@@ -1,0 +1,158 @@
+23:06:59 methodc-peer: LAB peer: A0 upstream=https://127.0.0.1:8443 ws=ws://127.0.0.1:8802/v1/ws join_base=https://127.0.0.1:8802 pair_exp=90
+23:06:59 methodc-peer: signalling ready
+23:06:59 methodc-peer: mint needed: no join published (kiosk)
+23:06:59 methodc-peer: published join → /workspace/mc-lab/run030/sticklink-join.json
+23:06:59 methodc-peer: QR ready exp=1795147679
+23:07:09 methodc-peer: peer join c65
+23:07:09 methodc-peer: published connected — kiosk QR cleared
+23:07:09 methodc-peer: ICE servers=0
+23:07:10 methodc-peer: sent offer
+23:07:10 methodc-peer: set remote answer
+23:07:10 methodc-peer: datachannel open
+23:07:10 methodc-peer: noise ok
+23:07:10 methodc-peer: pair_psk+confirm ok
+23:07:10 methodc-peer: agent bridge ready (loopback; Bearer …n9QRsI)
+23:07:10 methodc-peer: agent_ready; app-mux → https://127.0.0.1 only
+23:07:10 methodc-peer: sess.open ok token=…REtjkg
+23:07:10 methodc-peer: resume.put durable ok token=…REtjkg
+23:07:10 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=4ms)
+23:07:10 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+23:07:10 methodc-peer: http POST /agent-zero/api/poll -> 200 (1542 B → gz 569 B, up=2ms)
+23:07:10 methodc-peer: http POST /agent-zero/api/poll -> 200 (1070 B → gz 326 B, up=3ms)
+23:07:11 methodc-peer: http POST /agent-zero/api/poll -> 200 (1227 B → gz 424 B, up=3ms)
+23:07:11 methodc-peer: http POST /agent-zero/api/poll -> 200 (1254 B → gz 440 B, up=3ms)
+23:07:11 methodc-peer: datachannel closed by peer/stack
+23:07:11 methodc-peer: published reconnecting reason=transport-lost
+23:07:11 methodc-peer: DC closed — A0 mux kept up; awaiting sess peer
+23:07:11 methodc-peer: webrtc connectionState=closed
+23:07:11 methodc-peer: published reconnecting reason=transport-lost
+23:07:11 methodc-peer: peer leave conn=c65 — keep A0
+23:07:11 methodc-peer: published connected — kiosk QR cleared
+23:07:11 methodc-peer: sess.peer join conn=c66 — await Noise msg1
+23:07:11 methodc-peer: live mux on WSS sess.frame
+23:07:11 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=3ms)
+23:07:11 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+23:07:11 methodc-peer: http POST /agent-zero/api/poll -> 200 (1583 B → gz 578 B, up=2ms)
+23:07:12 methodc-peer: http POST /agent-zero/api/poll -> 200 (1108 B → gz 332 B, up=3ms)
+23:07:13 methodc-peer: http POST /agent-zero/api/poll -> 200 (1264 B → gz 430 B, up=5ms)
+23:07:13 methodc-peer: http POST /agent-zero/api/poll -> 200 (1293 B → gz 446 B, up=3ms)
+23:07:13 methodc-peer: published reconnecting reason=transport-lost
+23:07:13 methodc-peer: sess.peer leave conn=c66
+23:07:13 methodc-peer: published connected — kiosk QR cleared
+23:07:13 methodc-peer: sess.peer join conn=c67 — await Noise msg1
+23:07:13 methodc-peer: live mux on WSS sess.frame
+23:07:13 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=2ms)
+23:07:13 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+23:07:13 methodc-peer: http POST /agent-zero/api/poll -> 200 (1622 B → gz 587 B, up=2ms)
+23:07:14 methodc-peer: http POST /agent-zero/api/poll -> 200 (1146 B → gz 341 B, up=3ms)
+23:07:14 methodc-peer: http POST /agent-zero/api/poll -> 200 (1303 B → gz 437 B, up=3ms)
+23:07:15 methodc-peer: http POST /agent-zero/api/poll -> 200 (1334 B → gz 454 B, up=3ms)
+23:07:15 methodc-peer: client close why=user
+23:07:15 methodc-peer: published reconnecting reason=transport-lost
+23:07:15 methodc-peer: sess.peer leave conn=c67
+23:09:59 methodc-peer: published idle reason=user-disconnect — waiting for Generate
+23:09:59 methodc-peer: session ended: RuntimeError: user disconnect — awaiting remint; retry in 2s
+23:09:59 methodc-peer: signalling ready
+23:09:59 methodc-peer: mint needed: remint.req (kiosk)
+23:09:59 methodc-peer: published join → /workspace/mc-lab/run030/sticklink-join.json
+23:09:59 methodc-peer: QR ready exp=1795147859
+23:09:59 methodc-peer: peer join c69
+23:09:59 methodc-peer: published connected — kiosk QR cleared
+23:09:59 methodc-peer: ICE servers=0
+23:09:59 methodc-peer: sent offer
+23:09:59 methodc-peer: set remote answer
+23:09:59 methodc-peer: datachannel open
+23:09:59 methodc-peer: noise ok
+23:09:59 methodc-peer: pair_psk+confirm ok
+23:09:59 methodc-peer: agent bridge ready (loopback; Bearer …Mj-AUQ)
+23:09:59 methodc-peer: agent_ready; app-mux → https://127.0.0.1 only
+23:09:59 methodc-peer: sess.open ok token=…sKlI2Q
+23:09:59 methodc-peer: resume.put durable ok token=…sKlI2Q
+23:10:02 methodc-peer: datachannel closed by peer/stack
+23:10:02 methodc-peer: published reconnecting reason=transport-lost
+23:10:02 methodc-peer: DC closed — A0 mux kept up; awaiting sess peer
+23:10:02 methodc-peer: webrtc connectionState=closed
+23:11:59 methodc-peer: session ended: RuntimeError: kiosk remint requested; retry in 2s
+23:11:59 methodc-peer: signalling ready
+23:11:59 methodc-peer: mint needed: remint.req (kiosk)
+23:11:59 methodc-peer: published join → /workspace/mc-lab/run030/sticklink-join.json
+23:11:59 methodc-peer: QR ready exp=1795147979
+23:12:17 methodc-peer: session ended: RuntimeError: kiosk remint requested; retry in 2s
+23:12:17 methodc-peer: signalling ready
+23:12:17 methodc-peer: mint needed: remint.req (kiosk)
+23:12:17 methodc-peer: published join → /workspace/mc-lab/run030/sticklink-join.json
+23:12:17 methodc-peer: QR ready exp=1795147997
+23:12:22 methodc-peer: peer join c72
+23:12:22 methodc-peer: published connected — kiosk QR cleared
+23:12:22 methodc-peer: ICE servers=0
+23:12:22 methodc-peer: sent offer
+23:12:22 methodc-peer: set remote answer
+23:12:22 methodc-peer: datachannel open
+23:12:22 methodc-peer: noise ok
+23:12:22 methodc-peer: pair_psk+confirm ok
+23:12:22 methodc-peer: agent bridge ready (loopback; Bearer …FclJFA)
+23:12:22 methodc-peer: agent_ready; app-mux → https://127.0.0.1 only
+23:12:22 methodc-peer: sess.open ok token=…GPd1AQ
+23:12:22 methodc-peer: resume.put durable ok token=…GPd1AQ
+23:12:22 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=2ms)
+23:12:22 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+23:12:22 methodc-peer: http POST /agent-zero/api/poll -> 200 (1657 B → gz 592 B, up=2ms)
+23:12:23 methodc-peer: http POST /agent-zero/api/poll -> 200 (1184 B → gz 346 B, up=3ms)
+23:12:23 methodc-peer: http POST /agent-zero/api/poll -> 200 (1341 B → gz 443 B, up=3ms)
+23:12:24 methodc-peer: http POST /agent-zero/api/poll -> 200 (1368 B → gz 459 B, up=3ms)
+23:12:24 methodc-peer: datachannel closed by peer/stack
+23:12:24 methodc-peer: published reconnecting reason=transport-lost
+23:12:24 methodc-peer: DC closed — A0 mux kept up; awaiting sess peer
+23:12:24 methodc-peer: webrtc connectionState=closed
+23:12:24 methodc-peer: published reconnecting reason=transport-lost
+23:12:24 methodc-peer: peer leave conn=c72 — keep A0
+23:12:24 methodc-peer: published connected — kiosk QR cleared
+23:12:24 methodc-peer: sess.peer join conn=c73 — await Noise msg1
+23:12:24 methodc-peer: live mux on WSS sess.frame
+23:12:24 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=3ms)
+23:12:24 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+23:12:24 methodc-peer: http POST /agent-zero/api/poll -> 200 (1696 B → gz 600 B, up=2ms)
+23:12:24 methodc-peer: http POST /agent-zero/api/poll -> 200 (1222 B → gz 354 B, up=3ms)
+23:12:25 methodc-peer: http POST /agent-zero/api/poll -> 200 (1378 B → gz 448 B, up=3ms)
+23:12:25 methodc-peer: http POST /agent-zero/api/poll -> 200 (1407 B → gz 464 B, up=3ms)
+23:12:25 methodc-peer: published reconnecting reason=transport-lost
+23:12:25 methodc-peer: sess.peer leave conn=c73
+23:12:25 methodc-peer: published connected — kiosk QR cleared
+23:12:25 methodc-peer: sess.peer join conn=c74 — await Noise msg1
+23:12:25 methodc-peer: live mux on WSS sess.frame
+23:12:26 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=3ms)
+23:12:26 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+23:12:26 methodc-peer: http POST /agent-zero/api/poll -> 200 (1735 B → gz 604 B, up=2ms)
+23:12:26 methodc-peer: http POST /agent-zero/api/poll -> 200 (1260 B → gz 361 B, up=3ms)
+23:12:27 methodc-peer: http POST /agent-zero/api/poll -> 200 (1417 B → gz 455 B, up=3ms)
+23:12:27 methodc-peer: http POST /agent-zero/api/poll -> 200 (1448 B → gz 473 B, up=3ms)
+23:12:27 methodc-peer: client close why=user
+23:12:27 methodc-peer: published reconnecting reason=transport-lost
+23:12:27 methodc-peer: sess.peer leave conn=c74
+23:15:17 methodc-peer: published idle reason=user-disconnect — waiting for Generate
+23:15:17 methodc-peer: session ended: RuntimeError: user disconnect — awaiting remint; retry in 2s
+23:15:17 methodc-peer: signalling ready
+23:15:17 methodc-peer: mint needed: remint.req (kiosk)
+23:15:17 methodc-peer: published join → /workspace/mc-lab/run030/sticklink-join.json
+23:15:17 methodc-peer: QR ready exp=1795148177
+23:15:17 methodc-peer: peer join c76
+23:15:17 methodc-peer: published connected — kiosk QR cleared
+23:15:17 methodc-peer: ICE servers=0
+23:15:17 methodc-peer: sent offer
+23:15:17 methodc-peer: set remote answer
+23:15:17 methodc-peer: datachannel open
+23:15:17 methodc-peer: noise ok
+23:15:17 methodc-peer: pair_psk+confirm ok
+23:15:17 methodc-peer: agent bridge ready (loopback; Bearer …1F3jHw)
+23:15:17 methodc-peer: agent_ready; app-mux → https://127.0.0.1 only
+23:15:17 methodc-peer: sess.open ok token=…-cMJYQ
+23:15:17 methodc-peer: resume.put durable ok token=…-cMJYQ
+23:15:21 methodc-peer: datachannel closed by peer/stack
+23:15:21 methodc-peer: published reconnecting reason=transport-lost
+23:15:21 methodc-peer: DC closed — A0 mux kept up; awaiting sess peer
+23:15:21 methodc-peer: webrtc connectionState=closed
+23:17:17 methodc-peer: session ended: RuntimeError: kiosk remint requested; retry in 2s
+23:17:17 methodc-peer: signalling ready
+23:17:17 methodc-peer: mint needed: remint.req (kiosk)
+23:17:17 methodc-peer: published join → /workspace/mc-lab/run030/sticklink-join.json
+23:17:17 methodc-peer: QR ready exp=1795148297

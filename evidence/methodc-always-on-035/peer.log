@@ -1,0 +1,278 @@
+11:27:18 methodc-peer: LAB peer: A0 upstream=https://127.0.0.1:8444 ws=ws://127.0.0.1:8802/v1/ws join_base=https://127.0.0.1:8802 pair_exp=90
+11:27:18 methodc-peer: signalling ready
+11:27:18 methodc-peer: mint needed: no join published (kiosk)
+11:27:18 methodc-peer: published join → /workspace/mc-lab/run035/sticklink-join.json
+11:27:18 methodc-peer: QR ready exp=1795278498
+11:27:32 methodc-peer: peer join c2
+11:27:32 methodc-peer: published connected — kiosk QR cleared
+11:27:32 methodc-peer: ICE servers=0
+11:27:33 methodc-peer: sent offer
+11:27:33 methodc-peer: set remote answer
+11:27:33 methodc-peer: datachannel open
+11:27:33 methodc-peer: noise ok
+11:27:33 methodc-peer: pair_psk+confirm ok
+11:27:33 methodc-peer: agent bridge ready (loopback; Bearer …y9rfFQ)
+11:27:33 methodc-peer: agent_ready; app-mux → https://127.0.0.1 only
+11:27:33 methodc-peer: sess.open ok token=…hCRIaw
+11:27:33 methodc-peer: resume.put durable ok token=…hCRIaw
+11:27:33 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=4ms)
+11:27:33 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+11:27:33 methodc-peer: http POST /agent-zero/api/poll -> 200 (955 B → gz 509 B, up=2ms)
+11:27:33 methodc-peer: http POST /agent-zero/api/poll -> 200 (455 B, up=4ms)
+11:27:34 methodc-peer: http POST /agent-zero/api/poll -> 200 (612 B, up=3ms)
+11:27:34 methodc-peer: http POST /agent-zero/api/poll -> 200 (639 B, up=4ms)
+11:27:34 methodc-peer: datachannel closed by peer/stack
+11:27:34 methodc-peer: published reconnecting reason=transport-lost
+11:27:34 methodc-peer: DC closed — A0 mux kept up; awaiting sess peer
+11:27:34 methodc-peer: webrtc connectionState=closed
+11:27:34 methodc-peer: published reconnecting reason=transport-lost
+11:27:34 methodc-peer: peer leave conn=c2 — keep A0
+11:27:34 methodc-peer: published connected — kiosk QR cleared
+11:27:34 methodc-peer: sess.peer join conn=c3 — await Noise msg1
+11:27:34 methodc-peer: live mux on WSS sess.frame
+11:27:34 methodc-peer: sess.open ok token=…6RYUHA
+11:27:34 methodc-peer: resume token rotated …hCRIaw→…6RYUHA
+11:27:35 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=3ms)
+11:27:35 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+11:27:35 methodc-peer: http POST /agent-zero/api/poll -> 200 (1255 B → gz 576 B, up=5ms)
+11:27:35 methodc-peer: http POST /agent-zero/api/poll -> 200 (752 B, up=4ms)
+11:27:36 methodc-peer: http POST /agent-zero/api/poll -> 200 (908 B → gz 412 B, up=3ms)
+11:27:36 methodc-peer: http POST /agent-zero/api/poll -> 200 (937 B → gz 424 B, up=3ms)
+11:27:36 methodc-peer: published reconnecting reason=transport-lost
+11:27:36 methodc-peer: sess.peer leave conn=c3
+11:27:36 methodc-peer: published connected — kiosk QR cleared
+11:27:36 methodc-peer: sess.peer join conn=c4 — await Noise msg1
+11:27:36 methodc-peer: live mux on WSS sess.frame
+11:27:36 methodc-peer: sess.open ok token=…gYLJhA
+11:27:36 methodc-peer: resume token rotated …6RYUHA→…gYLJhA
+11:27:36 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=3ms)
+11:27:36 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=2ms)
+11:27:36 methodc-peer: http POST /agent-zero/api/poll -> 200 (1557 B → gz 633 B, up=2ms)
+11:27:37 methodc-peer: http POST /agent-zero/api/poll -> 200 (1049 B → gz 373 B, up=4ms)
+11:27:37 methodc-peer: http POST /agent-zero/api/poll -> 200 (1206 B → gz 463 B, up=4ms)
+11:27:38 methodc-peer: http POST /agent-zero/api/poll -> 200 (1241 B → gz 476 B, up=3ms)
+11:27:38 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=3ms)
+11:27:41 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=90ms)
+11:27:41 methodc-peer: http POST /agent-zero/api/poll -> 200 (1918 B → gz 734 B, up=3ms)
+11:27:41 methodc-peer: http POST /agent-zero/api/poll -> 200 (1346 B → gz 421 B, up=3ms)
+11:27:42 methodc-peer: http POST /agent-zero/api/poll -> 200 (1681 B → gz 583 B, up=4ms)
+11:27:42 methodc-peer: http POST /agent-zero/api/poll -> 200 (1891 B → gz 705 B, up=3ms)
+11:27:46 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=4ms)
+11:27:46 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=2ms)
+11:27:46 methodc-peer: http POST /agent-zero/api/poll -> 200 (2151 B → gz 738 B, up=2ms)
+11:27:47 methodc-peer: http POST /agent-zero/api/poll -> 200 (1643 B → gz 472 B, up=3ms)
+11:27:47 methodc-peer: http POST /agent-zero/api/poll -> 200 (1799 B → gz 564 B, up=3ms)
+11:27:48 methodc-peer: http POST /agent-zero/api/poll -> 200 (1833 B → gz 578 B, up=5ms)
+11:27:53 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=4ms)
+11:27:53 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=2ms)
+11:27:53 methodc-peer: http POST /agent-zero/api/poll -> 200 (2448 B → gz 789 B, up=2ms)
+11:27:53 methodc-peer: http POST /agent-zero/api/poll -> 200 (1940 B → gz 519 B, up=3ms)
+11:27:53 methodc-peer: http POST /agent-zero/api/message_queue_add -> 200 (66 B, up=3ms)
+11:27:53 methodc-peer: http POST /agent-zero/api/upload -> 200 (98 B, up=5ms)
+11:27:53 methodc-peer: http POST /agent-zero/api/message_queue_add -> 200 (66 B, up=2ms)
+11:27:54 methodc-peer: http POST /agent-zero/api/poll -> 200 (2367 B → gz 712 B, up=4ms)
+11:27:54 methodc-peer: http POST /agent-zero/api/poll -> 200 (2367 B → gz 712 B, up=4ms)
+11:27:55 methodc-peer: http POST /agent-zero/api/poll -> 200 (2367 B → gz 712 B, up=3ms)
+11:27:55 methodc-peer: http POST /agent-zero/api/poll -> 200 (2534 B → gz 786 B, up=3ms)
+11:27:55 methodc-peer: http POST /agent-zero/api/poll -> 200 (2377 B → gz 718 B, up=3ms)
+11:27:56 methodc-peer: http POST /agent-zero/api/poll -> 200 (2377 B → gz 718 B, up=3ms)
+11:27:56 methodc-peer: http POST /agent-zero/api/poll -> 200 (2523 B → gz 791 B, up=3ms)
+11:27:57 methodc-peer: http POST /agent-zero/api/poll -> 200 (2362 B → gz 706 B, up=3ms)
+11:27:57 methodc-peer: http POST /agent-zero/api/poll -> 200 (2362 B → gz 706 B, up=3ms)
+11:27:58 methodc-peer: http POST /agent-zero/api/poll -> 200 (2862 B → gz 930 B, up=3ms)
+11:27:58 methodc-peer: http POST /agent-zero/api/poll -> 200 (3694 B → gz 1073 B, up=3ms)
+11:27:58 methodc-peer: http POST /agent-zero/api/poll -> 200 (2166 B → gz 673 B, up=6ms)
+11:27:58 methodc-peer: http POST /agent-zero/api/poll -> 200 (2323 B → gz 761 B, up=4ms)
+11:27:59 methodc-peer: http POST /agent-zero/api/poll -> 200 (2676 B → gz 875 B, up=4ms)
+11:27:59 methodc-peer: http POST /agent-zero/api/poll -> 200 (4206 B → gz 1103 B, up=2ms)
+11:27:59 methodc-peer: http POST /agent-zero/api/poll -> 200 (1943 B → gz 520 B, up=3ms)
+11:28:00 methodc-peer: http POST /agent-zero/api/poll -> 200 (2213 B → gz 662 B, up=5ms)
+11:28:00 methodc-peer: http POST /agent-zero/api/poll -> 200 (2286 B → gz 682 B, up=3ms)
+11:28:00 methodc-peer: http POST /agent-zero/api/poll -> 200 (2210 B → gz 684 B, up=3ms)
+11:28:00 methodc-peer: http POST /agent-zero/api/poll -> 200 (1948 B → gz 514 B, up=3ms)
+11:28:06 methodc-peer: http POST /agent-zero/api/poll -> 200 (1948 B → gz 514 B, up=4ms)
+11:28:06 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+11:28:06 methodc-peer: http POST /agent-zero/api/poll -> 200 (5417 B → gz 1366 B, up=3ms)
+11:28:06 methodc-peer: http POST /agent-zero/api/poll -> 200 (1943 B → gz 524 B, up=4ms)
+11:28:06 methodc-peer: http POST /agent-zero/api/message_queue_add -> 200 (66 B, up=3ms)
+11:28:06 methodc-peer: published reconnecting reason=transport-lost
+11:28:06 methodc-peer: sess.peer leave conn=c4
+11:28:06 methodc-peer: published connected — kiosk QR cleared
+11:28:06 methodc-peer: sess.peer join conn=c5 — await Noise msg1
+11:28:06 methodc-peer: live mux on WSS sess.frame
+11:28:06 methodc-peer: sess.open ok token=…2un5wg
+11:28:06 methodc-peer: resume token rotated …gYLJhA→…2un5wg
+11:28:07 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=4ms)
+11:28:07 methodc-peer: http POST /agent-zero/api/poll -> 200 (5616 B → gz 1429 B, up=2ms)
+11:28:07 methodc-peer: http POST /agent-zero/api/poll -> 200 (2142 B → gz 665 B, up=3ms)
+11:28:08 methodc-peer: http POST /agent-zero/api/poll -> 200 (2310 B → gz 740 B, up=4ms)
+11:28:08 methodc-peer: http POST /agent-zero/api/poll -> 200 (2152 B → gz 670 B, up=3ms)
+11:28:08 methodc-peer: http POST /agent-zero/api/poll -> 200 (2152 B → gz 670 B, up=3ms)
+11:28:09 methodc-peer: http POST /agent-zero/api/poll -> 200 (2299 B → gz 741 B, up=3ms)
+11:28:09 methodc-peer: http POST /agent-zero/api/poll -> 200 (2137 B → gz 660 B, up=4ms)
+11:28:10 methodc-peer: http POST /agent-zero/api/poll -> 200 (2137 B → gz 660 B, up=3ms)
+11:28:10 methodc-peer: http POST /agent-zero/api/poll -> 200 (2294 B → gz 747 B, up=4ms)
+11:28:10 methodc-peer: http POST /agent-zero/api/poll -> 200 (2649 B → gz 860 B, up=4ms)
+11:28:10 methodc-peer: http POST /agent-zero/api/poll -> 200 (6449 B → gz 1500 B, up=2ms)
+11:28:11 methodc-peer: http POST /agent-zero/api/poll -> 200 (1943 B → gz 523 B, up=3ms)
+11:28:11 methodc-peer: http POST /agent-zero/api/poll -> 200 (2100 B → gz 619 B, up=3ms)
+11:28:12 methodc-peer: http POST /agent-zero/api/poll -> 200 (2139 B → gz 638 B, up=4ms)
+11:28:12 methodc-peer: http POST /agent-zero/api/poll -> 200 (1948 B → gz 518 B, up=3ms)
+11:28:12 methodc-peer: http POST /agent-zero/api/poll -> 200 (1948 B → gz 518 B, up=3ms)
+11:28:12 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+11:28:12 methodc-peer: http POST /agent-zero/api/poll -> 200 (7150 B → gz 1589 B, up=2ms)
+11:28:12 methodc-peer: http POST /agent-zero/api/poll -> 200 (1943 B → gz 523 B, up=3ms)
+11:28:12 methodc-peer: http POST /agent-zero/api/message_queue_add -> 200 (66 B, up=2ms)
+11:28:12 methodc-peer: http POST /agent-zero/api/message_queue_add -> 200 (66 B, up=2ms)
+11:28:13 methodc-peer: http POST /agent-zero/api/poll -> 200 (2343 B → gz 702 B, up=4ms)
+11:28:13 methodc-peer: http POST /agent-zero/api/message_queue_remove -> 200 (28 B, up=3ms)
+11:28:13 methodc-peer: http POST /agent-zero/api/poll -> 200 (2142 B → gz 662 B, up=3ms)
+11:28:13 methodc-peer: http POST /agent-zero/api/poll -> 200 (2142 B → gz 662 B, up=5ms)
+11:28:14 methodc-peer: http POST /agent-zero/api/stop -> 200 (54 B, up=3ms)
+11:28:14 methodc-peer: http POST /agent-zero/api/poll -> 200 (2142 B → gz 662 B, up=3ms)
+11:28:14 methodc-peer: http POST /agent-zero/api/message_queue_remove -> 200 (28 B, up=3ms)
+11:28:14 methodc-peer: http POST /agent-zero/api/poll -> 200 (2103 B → gz 606 B, up=3ms)
+11:28:14 methodc-peer: http POST /agent-zero/api/poll -> 200 (1948 B → gz 518 B, up=2ms)
+11:28:18 methodc-peer: signalling pair.closed why=exp — keep mux
+11:28:20 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=4ms)
+11:28:20 methodc-peer: http POST /agent-zero/api/poll -> 200 (7312 B → gz 1626 B, up=3ms)
+11:28:20 methodc-peer: http POST /agent-zero/api/poll -> 200 (1948 B → gz 518 B, up=2ms)
+11:28:20 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=2ms)
+11:28:20 methodc-peer: http POST /agent-zero/api/poll -> 200 (7816 B → gz 1687 B, up=2ms)
+11:28:21 methodc-peer: http POST /agent-zero/api/poll -> 200 (1943 B → gz 524 B, up=4ms)
+11:28:21 methodc-peer: http POST /agent-zero/api/message_queue_add -> 200 (66 B, up=2ms)
+11:28:21 methodc-peer: http POST /agent-zero/api/stop -> 200 (54 B, up=3ms)
+11:28:21 methodc-peer: http POST /agent-zero/api/poll -> 200 (2302 B → gz 738 B, up=3ms)
+11:28:21 methodc-peer: http POST /agent-zero/api/poll -> 200 (8177 B → gz 1764 B, up=3ms)
+11:28:22 methodc-peer: http POST /agent-zero/api/poll -> 200 (2147 B → gz 655 B, up=3ms)
+11:28:22 methodc-peer: http POST /agent-zero/api/poll -> 200 (2147 B → gz 655 B, up=3ms)
+11:28:22 methodc-peer: http POST /agent-zero/api/poll -> 200 (2147 B → gz 655 B, up=3ms)
+11:28:23 methodc-peer: http POST /agent-zero/api/poll -> 200 (2147 B → gz 655 B, up=3ms)
+11:28:23 methodc-peer: http POST /agent-zero/api/poll -> 200 (2147 B → gz 655 B, up=3ms)
+11:28:24 methodc-peer: http POST /agent-zero/api/poll -> 200 (2147 B → gz 655 B, up=3ms)
+11:28:24 methodc-peer: http POST /agent-zero/api/poll -> 200 (2147 B → gz 655 B, up=3ms)
+11:28:24 methodc-peer: http POST /agent-zero/api/poll -> 200 (2147 B → gz 655 B, up=3ms)
+11:28:24 methodc-peer: http POST /agent-zero/api/message_queue_send -> 200 (52 B, up=3ms)
+11:28:25 methodc-peer: http POST /agent-zero/api/poll -> 200 (2470 B → gz 800 B, up=4ms)
+11:28:25 methodc-peer: http POST /agent-zero/api/poll -> 200 (2101 B → gz 618 B, up=3ms)
+11:28:26 methodc-peer: http POST /agent-zero/api/poll -> 200 (2135 B → gz 637 B, up=3ms)
+11:28:26 methodc-peer: http POST /agent-zero/api/poll -> 200 (1948 B → gz 517 B, up=2ms)
+11:28:26 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=3ms)
+11:28:26 methodc-peer: http POST /agent-zero/api/poll -> 200 (1863 B → gz 493 B, up=3ms)
+11:28:26 methodc-peer: http POST /agent-zero/api/poll -> 200 (8696 B → gz 1800 B, up=3ms)
+11:28:26 methodc-peer: http POST /agent-zero/api/chat_create -> 200 (64 B, up=2ms)
+11:28:26 methodc-peer: http POST /agent-zero/api/poll -> 200 (2252 B → gz 564 B, up=2ms)
+11:28:26 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=2ms)
+11:28:26 methodc-peer: http POST /agent-zero/api/poll -> 200 (2744 B → gz 843 B, up=3ms)
+11:28:26 methodc-peer: http POST /agent-zero/api/poll -> 200 (2240 B → gz 572 B, up=3ms)
+11:28:27 methodc-peer: http POST /agent-zero/api/poll -> 200 (2397 B → gz 665 B, up=4ms)
+11:28:27 methodc-peer: http POST /agent-zero/api/poll -> 200 (2427 B → gz 681 B, up=3ms)
+11:28:27 methodc-peer: http POST /agent-zero/api/poll -> 200 (2245 B → gz 564 B, up=2ms)
+11:28:27 methodc-peer: http POST /agent-zero/api/poll -> 200 (2161 B → gz 539 B, up=3ms)
+11:28:27 methodc-peer: http POST /agent-zero/api/poll -> 200 (2933 B → gz 894 B, up=2ms)
+11:28:27 methodc-peer: http POST /agent-zero/api/poll -> 200 (8994 B → gz 1849 B, up=2ms)
+11:28:27 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=2ms)
+11:28:27 methodc-peer: http POST /agent-zero/api/poll -> 200 (9504 B → gz 1917 B, up=2ms)
+11:28:28 methodc-peer: http POST /agent-zero/api/poll -> 200 (2241 B → gz 573 B, up=4ms)
+11:28:28 methodc-peer: http POST /agent-zero/api/poll -> 200 (2399 B → gz 668 B, up=15ms)
+11:28:28 methodc-peer: http POST /agent-zero/api/poll -> 200 (2437 B → gz 688 B, up=4ms)
+11:28:28 methodc-peer: http POST /agent-zero/api/poll -> 200 (2246 B → gz 567 B, up=2ms)
+11:28:34 methodc-peer: http POST /agent-zero/api/poll -> 200 (2246 B → gz 567 B, up=3ms)
+11:28:34 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+11:28:34 methodc-peer: http POST /agent-zero/api/poll -> 200 (10209 B → gz 2001 B, up=2ms)
+11:28:34 methodc-peer: http POST /agent-zero/api/poll -> 200 (2241 B → gz 575 B, up=4ms)
+11:28:34 methodc-peer: http POST /agent-zero/api/poll -> 200 (2399 B → gz 670 B, up=3ms)
+11:28:35 methodc-peer: http POST /agent-zero/api/poll -> 200 (2434 B → gz 690 B, up=3ms)
+11:28:35 methodc-peer: http POST /agent-zero/api/poll -> 200 (2246 B → gz 568 B, up=2ms)
+11:28:40 methodc-peer: http POST /agent-zero/api/poll -> 200 (2246 B → gz 568 B, up=5ms)
+11:28:40 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+11:28:40 methodc-peer: http POST /agent-zero/api/poll -> 200 (10912 B → gz 2079 B, up=3ms)
+11:28:41 methodc-peer: http POST /agent-zero/api/poll -> 200 (2241 B → gz 573 B, up=3ms)
+11:28:41 methodc-peer: http POST /agent-zero/api/message_queue_add -> 200 (66 B, up=2ms)
+11:28:41 methodc-peer: http POST /agent-zero/api/poll -> 200 (2440 B → gz 713 B, up=3ms)
+11:28:41 methodc-peer: http POST /agent-zero/api/poll -> 200 (2440 B → gz 713 B, up=58ms)
+11:28:42 methodc-peer: http POST /agent-zero/api/poll -> 200 (2440 B → gz 713 B, up=3ms)
+11:28:42 methodc-peer: http POST /agent-zero/api/poll -> 200 (2607 B → gz 796 B, up=3ms)
+11:28:43 methodc-peer: http POST /agent-zero/api/poll -> 200 (2450 B → gz 720 B, up=4ms)
+11:28:43 methodc-peer: http POST /agent-zero/api/poll -> 200 (2450 B → gz 720 B, up=4ms)
+11:28:43 methodc-peer: http POST /agent-zero/api/poll -> 200 (2597 B → gz 795 B, up=4ms)
+11:28:44 methodc-peer: http POST /agent-zero/api/poll -> 200 (2435 B → gz 710 B, up=3ms)
+11:28:44 methodc-peer: http POST /agent-zero/api/poll -> 200 (2435 B → gz 710 B, up=4ms)
+11:28:45 methodc-peer: http POST /agent-zero/api/poll -> 200 (2949 B → gz 915 B, up=3ms)
+11:28:45 methodc-peer: http POST /agent-zero/api/poll -> 200 (11945 B → gz 2219 B, up=2ms)
+11:28:45 methodc-peer: http POST /agent-zero/api/poll -> 200 (2241 B → gz 577 B, up=4ms)
+11:28:46 methodc-peer: http POST /agent-zero/api/poll -> 200 (2399 B → gz 672 B, up=4ms)
+11:28:46 methodc-peer: http POST /agent-zero/api/poll -> 200 (2439 B → gz 690 B, up=3ms)
+11:28:46 methodc-peer: http POST /agent-zero/api/poll -> 200 (2246 B → gz 569 B, up=2ms)
+11:28:46 methodc-peer: http POST /agent-zero/api/poll -> 200 (2246 B → gz 569 B, up=3ms)
+11:28:46 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+11:28:46 methodc-peer: http POST /agent-zero/api/poll -> 200 (12664 B → gz 2297 B, up=3ms)
+11:28:46 methodc-peer: http POST /agent-zero/api/poll -> 200 (2241 B → gz 575 B, up=3ms)
+11:28:47 methodc-peer: http POST /agent-zero/api/poll -> 200 (2399 B → gz 672 B, up=4ms)
+11:28:47 methodc-peer: http POST /agent-zero/api/poll -> 200 (2445 B → gz 694 B, up=4ms)
+11:28:47 methodc-peer: http POST /agent-zero/api/poll -> 200 (2246 B → gz 568 B, up=3ms)
+11:28:53 methodc-peer: http POST /agent-zero/api/poll -> 200 (2246 B → gz 568 B, up=3ms)
+11:28:53 methodc-peer: published reconnecting reason=transport-lost
+11:28:53 methodc-peer: sess.peer leave conn=c5
+11:28:53 methodc-peer: published connected — kiosk QR cleared
+11:28:53 methodc-peer: sess.peer join conn=c6 — await Noise msg1
+11:28:53 methodc-peer: live mux on WSS sess.frame
+11:28:53 methodc-peer: sess.open ok token=…Q7B0Jg
+11:28:53 methodc-peer: resume token rotated …2un5wg→…Q7B0Jg
+11:28:53 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=3ms)
+11:28:53 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+11:28:53 methodc-peer: http POST /agent-zero/api/poll -> 200 (3043 B → gz 886 B, up=2ms)
+11:28:53 methodc-peer: http POST /agent-zero/api/poll -> 200 (2538 B → gz 618 B, up=3ms)
+11:28:54 methodc-peer: http POST /agent-zero/api/poll -> 200 (2695 B → gz 712 B, up=4ms)
+11:28:54 methodc-peer: http POST /agent-zero/api/poll -> 200 (2726 B → gz 729 B, up=4ms)
+11:28:54 methodc-peer: client close why=user
+11:30:55 methodc-peer: published idle reason=user-disconnect — waiting for Generate
+11:30:55 methodc-peer: session ended: RuntimeError: user disconnect — awaiting remint; retry in 2s
+11:30:55 methodc-peer: signalling ready
+11:30:55 methodc-peer: mint needed: remint.req (kiosk)
+11:30:55 methodc-peer: published join → /workspace/mc-lab/run035/sticklink-join.json
+11:30:55 methodc-peer: QR ready exp=1795278715
+11:30:55 methodc-peer: peer join c8
+11:30:55 methodc-peer: published connected — kiosk QR cleared
+11:30:55 methodc-peer: ICE servers=0
+11:30:55 methodc-peer: sent offer
+11:30:55 methodc-peer: set remote answer
+11:30:55 methodc-peer: datachannel open
+11:30:55 methodc-peer: noise ok
+11:30:55 methodc-peer: pair_psk+confirm ok
+11:30:55 methodc-peer: agent bridge ready (loopback; Bearer …I8Kqn8)
+11:30:55 methodc-peer: agent_ready; app-mux → https://127.0.0.1 only
+11:30:55 methodc-peer: sess.open ok token=…sFzmfw
+11:30:55 methodc-peer: resume.put durable ok token=…sFzmfw
+11:30:58 methodc-peer: datachannel closed by peer/stack
+11:30:58 methodc-peer: published reconnecting reason=transport-lost
+11:30:58 methodc-peer: DC closed — A0 mux kept up; awaiting sess peer
+11:30:58 methodc-peer: webrtc connectionState=closed
+11:32:55 methodc-peer: session ended: RuntimeError: kiosk remint requested; retry in 2s
+11:32:55 methodc-peer: signalling ready
+11:32:55 methodc-peer: mint needed: remint.req (kiosk)
+11:32:55 methodc-peer: published join → /workspace/mc-lab/run035/sticklink-join.json
+11:32:55 methodc-peer: QR ready exp=1795278835
+11:32:55 methodc-peer: peer join c11
+11:32:55 methodc-peer: published connected — kiosk QR cleared
+11:32:55 methodc-peer: ICE servers=0
+11:32:55 methodc-peer: sent offer
+11:32:55 methodc-peer: set remote answer
+11:32:55 methodc-peer: datachannel open
+11:32:55 methodc-peer: noise ok
+11:32:55 methodc-peer: pair_psk+confirm ok
+11:32:55 methodc-peer: agent bridge ready (loopback; Bearer …zDky3M)
+11:32:55 methodc-peer: agent_ready; app-mux → https://127.0.0.1 only
+11:32:55 methodc-peer: sess.open ok token=…n75jvQ
+11:32:55 methodc-peer: resume.put durable ok token=…n75jvQ
+11:32:55 methodc-peer: http GET /agent-zero/api/csrf_token -> 200 (96 B, up=4ms)
+11:32:55 methodc-peer: http POST /agent-zero/api/message_async -> 200 (55 B, up=3ms)
+11:32:55 methodc-peer: http POST /agent-zero/api/poll -> 200 (3344 B → gz 942 B, up=2ms)
+11:32:56 methodc-peer: http POST /agent-zero/api/poll -> 200 (2836 B → gz 668 B, up=3ms)
+11:32:56 methodc-peer: http POST /agent-zero/api/poll -> 200 (2992 B → gz 764 B, up=3ms)
+11:32:57 methodc-peer: http POST /agent-zero/api/poll -> 200 (3026 B → gz 780 B, up=4ms)
+11:32:57 methodc-peer: client close why=user
+11:32:57 methodc-peer: datachannel closed by peer/stack
+11:32:57 methodc-peer: published reconnecting reason=transport-lost
+11:32:57 methodc-peer: DC closed — A0 mux kept up; awaiting sess peer
+11:32:57 methodc-peer: webrtc connectionState=closed

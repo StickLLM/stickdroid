@@ -1,0 +1,8 @@
+07:50:00 testpeer: connect failed: SigError: timeout
+com.ninkinc.stickdroid.core.SigError: timeout
+	at com.ninkinc.stickdroid.core.SigClient.connect(SigClient.kt:104)
+	at com.ninkinc.stickdroid.core.SigClient.connect$default(SigClient.kt:46)
+	at com.ninkinc.stickdroid.core.SessionClient.connect(SessionClient.kt:81)
+	at com.ninkinc.stickdroid.core.SessionClient.connect$default(SessionClient.kt:64)
+	at com.ninkinc.stickdroid.interop.MainKt.cmdConnect(Main.kt:80)
+	at com.ninkinc.stickdroid.interop.MainKt.main(Main.kt:26)

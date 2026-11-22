@@ -1,0 +1,23 @@
+14:37:14 sticklinkd: 1 paired peer(s) loaded
+14:37:14 sticklinkd: udp :46728
+14:37:14 sticklinkd: signalling ready (home _nxk9U…, relays ['tor1'])
+14:37:14 sticklinkd: TEST: signing keys fetched from http://127.0.0.1:8800/v1/keys (not pinned): ['test-1']
+14:37:14 sticklinkd: revoked set in sync (rc 0, cursor 0)
+14:37:14 sticklinkd: relay permit still fresh; not re-registering
+14:37:14 sticklinkd: derp connected http://127.0.0.1:3341/derp as e11d0dc2
+14:37:16 sticklinkd: [stickdroid] joined signalling (c16); sending candidates
+14:37:18 sticklinkd: [stickdroid] sent 2 candidates + derp key
+14:37:18 sticklinkd: [stickdroid] remote candidates: 172.30.0.2:48950
+14:37:18 sticklinkd: [stickdroid] handshake ok (Noise IKpsk2, pinned key 81aeeb71) via direct 172.30.0.2:48950
+14:37:18 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:48950
+14:37:19 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:48950
+14:37:19 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:48950
+14:37:19 sticklinkd: [stickdroid] peer derp key 8f705b2f
+14:37:19 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:48950
+14:37:19 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:48950
+14:37:20 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:48950
+14:37:20 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:48950
+14:37:20 sticklinkd: [stickdroid] handshake retry answered via derp 8f705b2f
+14:37:20 sticklinkd: [stickdroid] path -> derp 8f705b2f
+14:37:29 sticklinkd: [stickdroid] left signalling (c16)
+14:37:29 sticklinkd: stopped

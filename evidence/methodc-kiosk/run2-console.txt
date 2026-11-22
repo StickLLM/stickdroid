@@ -1,0 +1,16 @@
+14:32:54 QR-A minted exp 1795116834
+14:32:54 T01-corrupt-P-flipped MAILBOX_GONE PASS
+14:32:54 T02-corrupt-P-short BAD_LINK PASS
+14:32:54 T03-wrong-host BAD_LINK PASS
+14:33:11 T05-reuse-invite-while-live STICK_BUSY PASS
+14:33:42 T04-direct-chat-session ok PASS
+14:33:46 T06-reuse-invite-after-session MAILBOX_GONE PASS
+14:33:47 QR-B minted exp 1795116887
+14:34:50 T07-expired-client-check EXPIRED PASS
+14:34:50 T08-expired-server-refuses MAILBOX_GONE PASS
+14:34:51 QR-C minted exp 1795116951
+14:34:53 T09-fresh-scan-second-session ok PASS
+14:34:54 QR-D minted exp 1795116954
+14:34:59 stick peer killed
+14:35:25 T10-stick-dies-mid-session LOST PASS
+SUMMARY 10/10 PASS

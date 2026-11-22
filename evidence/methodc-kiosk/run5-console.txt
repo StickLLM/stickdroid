@@ -1,0 +1,11 @@
+18:57:18 T01-corrupt-P-flipped MAILBOX_GONE PASS
+18:57:18 T02-corrupt-P-short BAD_LINK PASS
+18:57:19 T03-wrong-host BAD_LINK PASS
+18:57:35 T05-reuse-invite-while-live STICK_BUSY PASS
+18:58:06 T04-direct-chat-session ok PASS
+18:58:11 T06-reuse-invite-after-session MAILBOX_GONE PASS
+18:59:14 T07-expired-client-check EXPIRED PASS
+18:59:15 T08-expired-server-refuses MAILBOX_GONE PASS
+18:59:24 T09-fresh-scan-second-session ok PASS
+18:59:56 T10-stick-dies-mid-session LOST PASS
+SUMMARY 10/10 PASS

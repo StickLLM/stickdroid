@@ -1,0 +1,23 @@
+18:08:13 sticklinkd: 1 paired peer(s) loaded
+18:08:13 sticklinkd: udp :37163
+18:08:13 sticklinkd: signalling ready (home _nxk9U…, relays ['tor1'])
+18:08:13 sticklinkd: TEST: /v1/keys fetch failed: HTTPError
+18:08:13 sticklinkd: revoked page not verified (revoked page: kid 'test-1' is not pinned); applying remove-only, cursor kept
+18:08:13 sticklinkd: relay permit still fresh; not re-registering
+18:08:13 sticklinkd: derp connected http://127.0.0.1:3341/derp as b9c71ed0
+18:08:16 sticklinkd: [stickdroid] joined signalling (c3); sending candidates
+18:08:18 sticklinkd: [stickdroid] sent 2 candidates + derp key
+18:08:18 sticklinkd: [stickdroid] remote candidates: 172.30.0.2:57714
+18:08:18 sticklinkd: [stickdroid] handshake ok (Noise IKpsk2, pinned key fe39f979) via direct 172.30.0.2:57714
+18:08:18 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:57714
+18:08:18 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:57714
+18:08:18 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:57714
+18:08:18 sticklinkd: [stickdroid] peer derp key 0fe56725
+18:08:19 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:57714
+18:08:19 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:57714
+18:08:19 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:57714
+18:08:19 sticklinkd: [stickdroid] handshake retry answered via direct 172.30.0.2:57714
+18:08:19 sticklinkd: [stickdroid] handshake retry answered via derp 0fe56725
+18:08:19 sticklinkd: [stickdroid] path -> derp 0fe56725
+18:08:28 sticklinkd: [stickdroid] left signalling (c3)
+18:08:28 sticklinkd: stopped

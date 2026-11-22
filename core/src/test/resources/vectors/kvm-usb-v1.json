@@ -1,0 +1,478 @@
+{
+ "spec": "PAIRING-SPEC.md v0.5, Method B (kvm-usb)",
+ "note": "TEST ONLY. Keys and nonces are SHA-256 of ASCII labels.",
+ "code_reduction_boundaries": [
+  {
+   "sas8": "0000000000000000",
+   "code": "000000"
+  },
+  {
+   "sas8": "00000000000f423f",
+   "code": "999999"
+  },
+  {
+   "sas8": "00000000000f4240",
+   "code": "000000"
+  },
+  {
+   "sas8": "ffffffffffffffff",
+   "code": "551615"
+  }
+ ],
+ "runs": [
+  {
+   "mac": "0123456789AB",
+   "serial": "AIKVM-0123456789AB",
+   "vid": "0x303A",
+   "pid": "0x4012",
+   "prologue": "736c312f6b766d2d7573622f7631303a4012001241494b564d2d303132333435363738394142",
+   "stick_static_priv": "38110f3c3f74911d7c7a0bc72c26b2251783af4810f1f595829e7c3db0740952",
+   "stick_static_pub": "4d09032811ef6178fef7fdd6f46c80e9e15426b57de4175846523868d62b2a7a",
+   "stick_eph_priv": "e4e4ae35c8391a0750864f8396f1715eefa3e45514b2bf60e3152210a7437cb7",
+   "kvm_static_priv": "578a674e146acfaf1eb01942d77f967d2be9f6f31cdb84251abc8e5e497c697a",
+   "kvm_static_pub": "66264c7af848ba9b47acc5baf525fa89f6d722de8e08ff7675ec480d798eb472",
+   "kvm_eph_priv": "f59d04950facfd46c88c84ab120183c1103f043e5eb445a0ae5d799a90ece789",
+   "xx_payloads": "all empty",
+   "msg1": "c5a6ea9b0af6a92aba960dcf63331222a0d361050f2c72fb81fe6d64dca69234",
+   "msg2": "89041ac54e30c1c25a02093decb4551c532ffdf0f0de909ffc5590f89d40c5456ed78dcc0faae421150b473e510cc95564eb98c6755ad40cca4f76999b561528caed1feaca2938bb712c4ef45202bc69cc282870ec9e3201b28c2331fc16744c",
+   "msg3": "b9c4ec7337ff1794357b085bbd2f3097d2bf4d34ec84216131ab260a5891fd4afffc66e158bcba7dd60203ee362c2382ef2a6d07b1fd3d689fffd21fc423a6d0",
+   "h": "3ef5b7f9e2ff5006be21c300159e0095b192bb00e3f1457689c32012e07e4701",
+   "transport_key_stick_to_kvm": "ff170538643a0f12a7c014f16ba5d7933baa177ce6c2184ac8e19500f4d71ac8",
+   "transport_key_kvm_to_stick": "ae108b25192886b8649f014a645e53e75fba93b363610c076cc94f2d85d69b9a",
+   "Na": "5e90e73fc2b7445e1c05808f6c9f5b63b636212f9374710c0512d2da1d03e01b",
+   "Nb": "639a409b258d75433e33df47bad1d528cfbdf4403b63b6c13e633f1c9aef5d24",
+   "Cb": "1744f5c42017ffc05d24ae772a2f041f10b7e05280af32ec5892d7718bc846e9",
+   "sas8": "70c5b1f2da9aadc2",
+   "code": "700162",
+   "Nb_leading_zero": "2b9fb17da6ef953430b4fdd8fa1bfff10586891d7224c534e3fb39ffed3637dc",
+   "Cb_leading_zero": "0b7becc9dfed2a63d3a88cf506ab832ff9dd26d69735dbafba62cedd5e67d4a9",
+   "sas8_leading_zero": "a9c19f8016519596",
+   "code_leading_zero": "053526",
+   "TH_input_extra": "41494b564d2d303132333435363738394142",
+   "TH": "07c5826e19694b30a1417a0b112662de38e804957ea9f5a971d8836760555db8",
+   "r_i": "7c9bf88a09e377de9f5733dd5b71e7a10ecff5771ff806f3c884ad7b1cbb2571",
+   "r_r": "3c3a571791e4104cfbda81223334c578c2921e6c107077601e577413c194c4a4",
+   "key_epoch": 1,
+   "pair_psk": "88a0a2cc6a50a032a6c0a52ba3f0256a5aabb88f75cb9123797bbee0a3799eb5",
+   "kc": "19669f7371b98edfc1978310a8542afc40d548d54af861abae33850258d89e4d",
+   "confirm_i": "aa8fb20ff56106d7f9e83aa05f1a97b27cbca468bbcc7394685264d2d2797f14",
+   "confirm_r": "26ee19b2dc478f24369dc732a15e594f545711af0ee3acbe4b0c139ab766922c",
+   "home_id": "dde22576dfcbc99129d17ce40c8d54a2",
+   "slot_id": "3d3a8064548d8ee8",
+   "tls_fp": "82eb6af713151aad477a61aaf53c43287acf4a14c87beaa81c3c599c95f26b2f",
+   "P_slot": "64e27f8aa6249f7dff6023d5c9c5d4cf79279cc99fd0d236acfd31cd0c621db3",
+   "slot_jk": "5114518c3a3d0fad641352d878e5c79941815a04830ddc77ef2c764caf594fc1",
+   "slot_env_k": "7795a8a044c95cb814cc0487fd2fd34671a4ce3bac5a9bde5891b3aefbc1a64e",
+   "inner_messages": [
+    {
+     "dir": "kvm->stick",
+     "type": "0x01",
+     "noise_nonce": 0,
+     "plaintext": "011744f5c42017ffc05d24ae772a2f041f10b7e05280af32ec5892d7718bc846e9",
+     "ciphertext": "d0934df65f080a372bb9f0fa4f9087c8868276894e5167adb9e79e004636909007dbc072013019e897a16565b030c58819"
+    },
+    {
+     "dir": "stick->kvm",
+     "type": "0x02",
+     "noise_nonce": 0,
+     "plaintext": "025e90e73fc2b7445e1c05808f6c9f5b63b636212f9374710c0512d2da1d03e01b",
+     "ciphertext": "d2393a4813348318db0509178325429cb70600799818ec6011b7773cf7323d88508784e0d831e72591fba36b4709b70f48"
+    },
+    {
+     "dir": "kvm->stick",
+     "type": "0x03",
+     "noise_nonce": 1,
+     "plaintext": "03639a409b258d75433e33df47bad1d528cfbdf4403b63b6c13e633f1c9aef5d24",
+     "ciphertext": "f38d67e45e64a0434166eea856ebbd69d463acf534179b93e41052f4d4b220a4fd0d608726633c7521c5c9e96383bd5986"
+    },
+    {
+     "dir": "stick->kvm",
+     "type": "0x04",
+     "noise_nonce": 1,
+     "plaintext": "04",
+     "ciphertext": "1b27da7ffaa8b2d73e63a3223e72cf1a8a"
+    },
+    {
+     "dir": "kvm->stick",
+     "type": "0x04",
+     "noise_nonce": 2,
+     "plaintext": "04",
+     "ciphertext": "a299d19f4ff9a2ae29ec49a4aaa0b73a29"
+    },
+    {
+     "dir": "stick->kvm",
+     "type": "0x05",
+     "noise_nonce": 2,
+     "plaintext": "057c9bf88a09e377de9f5733dd5b71e7a10ecff5771ff806f3c884ad7b1cbb2571",
+     "ciphertext": "eaac0962544c8a316c38b8a7f4cde7fbe774cb3745de13bbd5e2c947d546461ec87493d1ea71bcf9b79d559e551adbe8f7"
+    },
+    {
+     "dir": "kvm->stick",
+     "type": "0x05",
+     "noise_nonce": 3,
+     "plaintext": "053c3a571791e4104cfbda81223334c578c2921e6c107077601e577413c194c4a4",
+     "ciphertext": "f180836b253b27352a564254c4fbb86ddca78e8173b1c55c0dbbc152d0bf6bb4341da770fca774d8c64ae584c3782c9e92"
+    },
+    {
+     "dir": "stick->kvm",
+     "type": "0x06",
+     "noise_nonce": 3,
+     "plaintext": "06aa8fb20ff56106d7f9e83aa05f1a97b27cbca468bbcc7394685264d2d2797f14",
+     "ciphertext": "5087bac0a45b5853c2ca17382a3bf7ae675728bb75f6de8d14d0ddb0981f002de9f7cc07b9c3af96bda20098ea4def8d97"
+    },
+    {
+     "dir": "kvm->stick",
+     "type": "0x06",
+     "noise_nonce": 4,
+     "plaintext": "0626ee19b2dc478f24369dc732a15e594f545711af0ee3acbe4b0c139ab766922c",
+     "ciphertext": "db0a1deeaa0e4cfdab652a9fea2fc5ffcfa18c40be9cebd57077051106165b812831a9bd3a57d9e1a857c12521711a6c9c"
+    },
+    {
+     "dir": "stick->kvm",
+     "type": "0x07",
+     "noise_nonce": 4,
+     "plaintext": "07dde22576dfcbc99129d17ce40c8d54a23d3a8064548d8ee8",
+     "ciphertext": "a27ece32efdf78037967dd7c6cc48a06892b878a3fee43ed93818453c7716383eb61c8e62ed99485f0"
+    },
+    {
+     "dir": "kvm->stick",
+     "type": "0x08",
+     "noise_nonce": 5,
+     "plaintext": "0882eb6af713151aad477a61aaf53c43287acf4a14c87beaa81c3c599c95f26b2f",
+     "ciphertext": "5de14501a56da0ca892750a4532be3e60973487cc40a2e7cf4225489d263fa5117446256f0bc01688853d6ac5b05776045"
+    }
+   ],
+   "hid_frames": [
+    {
+     "dir": "stick->kvm",
+     "length": 32,
+     "frames": [
+      "5a010100ff00000120c5a6ea9b0af6a92aba960dcf63331222a0d361050f2c72fb81fe6d64dca692340000000000000000000000000000000000000000000000"
+     ]
+    },
+    {
+     "dir": "kvm->stick",
+     "length": 96,
+     "frames": [
+      "5a010100000000023789041ac54e30c1c25a02093decb4551c532ffdf0f0de909ffc5590f89d40c5456ed78dcc0faae421150b473e510cc95564eb98c6755ad4",
+      "5a01010100000102290cca4f76999b561528caed1feaca2938bb712c4ef45202bc69cc282870ec9e3201b28c2331fc16744c0000000000000000000000000000"
+     ]
+    },
+    {
+     "dir": "stick->kvm",
+     "length": 64,
+     "frames": [
+      "5a0101010101000237b9c4ec7337ff1794357b085bbd2f3097d2bf4d34ec84216131ab260a5891fd4afffc66e158bcba7dd60203ee362c2382ef2a6d07b1fd3d",
+      "5a0101020101010209689fffd21fc423a6d000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+     ]
+    },
+    {
+     "dir": "kvm->stick",
+     "length": 49,
+     "frames": [
+      "5a0101020201000131d0934df65f080a372bb9f0fa4f9087c8868276894e5167adb9e79e004636909007dbc072013019e897a16565b030c58819000000000000"
+     ]
+    },
+    {
+     "dir": "stick->kvm",
+     "length": 49,
+     "frames": [
+      "5a0101030202000131d2393a4813348318db0509178325429cb70600799818ec6011b7773cf7323d88508784e0d831e72591fba36b4709b70f48000000000000"
+     ]
+    },
+    {
+     "dir": "kvm->stick",
+     "length": 49,
+     "frames": [
+      "5a0101030302000131f38d67e45e64a0434166eea856ebbd69d463acf534179b93e41052f4d4b220a4fd0d608726633c7521c5c9e96383bd5986000000000000"
+     ]
+    },
+    {
+     "dir": "stick->kvm",
+     "length": 17,
+     "frames": [
+      "5a01010403030001111b27da7ffaa8b2d73e63a3223e72cf1a8a0000000000000000000000000000000000000000000000000000000000000000000000000000"
+     ]
+    },
+    {
+     "dir": "kvm->stick",
+     "length": 17,
+     "frames": [
+      "5a0101040403000111a299d19f4ff9a2ae29ec49a4aaa0b73a290000000000000000000000000000000000000000000000000000000000000000000000000000"
+     ]
+    },
+    {
+     "dir": "stick->kvm",
+     "length": 49,
+     "frames": [
+      "5a0101050404000131eaac0962544c8a316c38b8a7f4cde7fbe774cb3745de13bbd5e2c947d546461ec87493d1ea71bcf9b79d559e551adbe8f7000000000000"
+     ]
+    },
+    {
+     "dir": "kvm->stick",
+     "length": 49,
+     "frames": [
+      "5a0101050504000131f180836b253b27352a564254c4fbb86ddca78e8173b1c55c0dbbc152d0bf6bb4341da770fca774d8c64ae584c3782c9e92000000000000"
+     ]
+    },
+    {
+     "dir": "stick->kvm",
+     "length": 49,
+     "frames": [
+      "5a01010605050001315087bac0a45b5853c2ca17382a3bf7ae675728bb75f6de8d14d0ddb0981f002de9f7cc07b9c3af96bda20098ea4def8d97000000000000"
+     ]
+    },
+    {
+     "dir": "kvm->stick",
+     "length": 49,
+     "frames": [
+      "5a0101060605000131db0a1deeaa0e4cfdab652a9fea2fc5ffcfa18c40be9cebd57077051106165b812831a9bd3a57d9e1a857c12521711a6c9c000000000000"
+     ]
+    },
+    {
+     "dir": "stick->kvm",
+     "length": 41,
+     "frames": [
+      "5a0101070606000129a27ece32efdf78037967dd7c6cc48a06892b878a3fee43ed93818453c7716383eb61c8e62ed99485f00000000000000000000000000000"
+     ]
+    },
+    {
+     "dir": "kvm->stick",
+     "length": 49,
+     "frames": [
+      "5a01010707060001315de14501a56da0ca892750a4532be3e60973487cc40a2e7cf4225489d263fa5117446256f0bc01688853d6ac5b05776045000000000000"
+     ]
+    }
+   ],
+   "hid_idle_frame_example": "5a010200ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "library_crosscheck": "noiseprotocol: handshake hash, all 3 handshake messages and all 11 transport messages identical"
+  },
+  {
+   "mac": "F412FA000001",
+   "serial": "AIKVM-F412FA000001",
+   "vid": "0x303A",
+   "pid": "0x4012",
+   "prologue": "736c312f6b766d2d7573622f7631303a4012001241494b564d2d463431324641303030303031",
+   "stick_static_priv": "38110f3c3f74911d7c7a0bc72c26b2251783af4810f1f595829e7c3db0740952",
+   "stick_static_pub": "4d09032811ef6178fef7fdd6f46c80e9e15426b57de4175846523868d62b2a7a",
+   "stick_eph_priv": "e4e4ae35c8391a0750864f8396f1715eefa3e45514b2bf60e3152210a7437cb7",
+   "kvm_static_priv": "578a674e146acfaf1eb01942d77f967d2be9f6f31cdb84251abc8e5e497c697a",
+   "kvm_static_pub": "66264c7af848ba9b47acc5baf525fa89f6d722de8e08ff7675ec480d798eb472",
+   "kvm_eph_priv": "f59d04950facfd46c88c84ab120183c1103f043e5eb445a0ae5d799a90ece789",
+   "xx_payloads": "all empty",
+   "msg1": "c5a6ea9b0af6a92aba960dcf63331222a0d361050f2c72fb81fe6d64dca69234",
+   "msg2": "89041ac54e30c1c25a02093decb4551c532ffdf0f0de909ffc5590f89d40c5456ed78dcc0faae421150b473e510cc95564eb98c6755ad40cca4f76999b561528f30e74be45dc9be5caf553c065004a6d5138b51e7053454c89b914ea3fe6bd6d",
+   "msg3": "b9c4ec7337ff1794357b085bbd2f3097d2bf4d34ec84216131ab260a5891fd4af105d6da2016004aee164aef1bfc52a002f0f2a6553b32c736bfe3d9debc7ab2",
+   "h": "76dca99de59926d6a9647e3a51d73d1c8f1fdb14232b8fa6d7cee7b2dd99c19a",
+   "transport_key_stick_to_kvm": "ff170538643a0f12a7c014f16ba5d7933baa177ce6c2184ac8e19500f4d71ac8",
+   "transport_key_kvm_to_stick": "ae108b25192886b8649f014a645e53e75fba93b363610c076cc94f2d85d69b9a",
+   "Na": "5e90e73fc2b7445e1c05808f6c9f5b63b636212f9374710c0512d2da1d03e01b",
+   "Nb": "639a409b258d75433e33df47bad1d528cfbdf4403b63b6c13e633f1c9aef5d24",
+   "Cb": "69db8430573fde71afde7107b611add1083b22fed3d81309f6bc427cd2835196",
+   "sas8": "3159363ddb85c896",
+   "code": "600150",
+   "Nb_leading_zero": "1a3a8d0ee678f2b4b020586d82abe2b9e7575f83d9d154969c145a31bf88348d",
+   "Cb_leading_zero": "58c8cbf637f555fa79ed5955b2172d04b90d61c76c19c4d2ac685a1db0ecc61a",
+   "sas8_leading_zero": "2bc690f1f1a1ac0d",
+   "code_leading_zero": "033613",
+   "TH_input_extra": "41494b564d2d463431324641303030303031",
+   "TH": "9d1feeb265cb5bf2c83c4119e74aced9a1f1cd5bf238894647f59814a8387c84",
+   "r_i": "7c9bf88a09e377de9f5733dd5b71e7a10ecff5771ff806f3c884ad7b1cbb2571",
+   "r_r": "3c3a571791e4104cfbda81223334c578c2921e6c107077601e577413c194c4a4",
+   "key_epoch": 1,
+   "pair_psk": "2067d1710f181275cafb62a591e24da863ac640a1f8b862a5e31c41309bb014c",
+   "kc": "0d3549473070f795c936fcfd3ba9dc08b51ad118d00b4d9ab4a5325b19e2a850",
+   "confirm_i": "7e8425e61ad33aaf83142790efb1d9ebf7d1620d49799adf4da458f24d7a5e71",
+   "confirm_r": "001a82dab58765eb1370560f3259a9dfdc54ae31499bdd8d568cfcb053862203",
+   "home_id": "dde22576dfcbc99129d17ce40c8d54a2",
+   "slot_id": "3d3a8064548d8ee8",
+   "tls_fp": "82eb6af713151aad477a61aaf53c43287acf4a14c87beaa81c3c599c95f26b2f",
+   "P_slot": "6964aa85ab510d88bcdca2d1c7f49452460e7d7ac9760e88c0256bda47492650",
+   "slot_jk": "a5b46a5a9667551ad78ffedd0c5cdcbc03e150959dcb505586fd0592f82e4f66",
+   "slot_env_k": "a538b74f4b340af75eeb3b5654e5b0dc95e6a3ed8481a3747b96856fa833509d",
+   "inner_messages": [
+    {
+     "dir": "kvm->stick",
+     "type": "0x01",
+     "noise_nonce": 0,
+     "plaintext": "0169db8430573fde71afde7107b611add1083b22fed3d81309f6bc427cd2835196",
+     "ciphertext": "d0edd287ab7f22169a4b0a253f0cb961489afa4be202108c5c49b0954b6fdb87787dd48d886da18411bfd182d352d74070"
+    },
+    {
+     "dir": "stick->kvm",
+     "type": "0x02",
+     "noise_nonce": 0,
+     "plaintext": "025e90e73fc2b7445e1c05808f6c9f5b63b636212f9374710c0512d2da1d03e01b",
+     "ciphertext": "d2393a4813348318db0509178325429cb70600799818ec6011b7773cf7323d88508784e0d831e72591fba36b4709b70f48"
+    },
+    {
+     "dir": "kvm->stick",
+     "type": "0x03",
+     "noise_nonce": 1,
+     "plaintext": "03639a409b258d75433e33df47bad1d528cfbdf4403b63b6c13e633f1c9aef5d24",
+     "ciphertext": "f38d67e45e64a0434166eea856ebbd69d463acf534179b93e41052f4d4b220a4fd0d608726633c7521c5c9e96383bd5986"
+    },
+    {
+     "dir": "stick->kvm",
+     "type": "0x04",
+     "noise_nonce": 1,
+     "plaintext": "04",
+     "ciphertext": "1b27da7ffaa8b2d73e63a3223e72cf1a8a"
+    },
+    {
+     "dir": "kvm->stick",
+     "type": "0x04",
+     "noise_nonce": 2,
+     "plaintext": "04",
+     "ciphertext": "a299d19f4ff9a2ae29ec49a4aaa0b73a29"
+    },
+    {
+     "dir": "stick->kvm",
+     "type": "0x05",
+     "noise_nonce": 2,
+     "plaintext": "057c9bf88a09e377de9f5733dd5b71e7a10ecff5771ff806f3c884ad7b1cbb2571",
+     "ciphertext": "eaac0962544c8a316c38b8a7f4cde7fbe774cb3745de13bbd5e2c947d546461ec87493d1ea71bcf9b79d559e551adbe8f7"
+    },
+    {
+     "dir": "kvm->stick",
+     "type": "0x05",
+     "noise_nonce": 3,
+     "plaintext": "053c3a571791e4104cfbda81223334c578c2921e6c107077601e577413c194c4a4",
+     "ciphertext": "f180836b253b27352a564254c4fbb86ddca78e8173b1c55c0dbbc152d0bf6bb4341da770fca774d8c64ae584c3782c9e92"
+    },
+    {
+     "dir": "stick->kvm",
+     "type": "0x06",
+     "noise_nonce": 3,
+     "plaintext": "067e8425e61ad33aaf83142790efb1d9ebf7d1620d49799adf4da458f24d7a5e71",
+     "ciphertext": "5053b1574db4ea6fbab0eb251a8b5ce03edc457d10046b645ff52b8cb880030c8c6eb081435722d00d601d42dd7938643b"
+    },
+    {
+     "dir": "kvm->stick",
+     "type": "0x06",
+     "noise_nonce": 4,
+     "plaintext": "06001a82dab58765eb1370560f3259a9dfdc54ae31499bdd8d568cfcb053862203",
+     "ciphertext": "db2ce975c2678c176440c70ed7bcc20f5f298fff20db93a4436a85fe2cf2bb31074cab7ac69de46dd3343b403210f6d1bc"
+    },
+    {
+     "dir": "stick->kvm",
+     "type": "0x07",
+     "noise_nonce": 4,
+     "plaintext": "07dde22576dfcbc99129d17ce40c8d54a23d3a8064548d8ee8",
+     "ciphertext": "a27ece32efdf78037967dd7c6cc48a06892b878a3fee43ed93818453c7716383eb61c8e62ed99485f0"
+    },
+    {
+     "dir": "kvm->stick",
+     "type": "0x08",
+     "noise_nonce": 5,
+     "plaintext": "0882eb6af713151aad477a61aaf53c43287acf4a14c87beaa81c3c599c95f26b2f",
+     "ciphertext": "5de14501a56da0ca892750a4532be3e60973487cc40a2e7cf4225489d263fa5117446256f0bc01688853d6ac5b05776045"
+    }
+   ],
+   "hid_frames": [
+    {
+     "dir": "stick->kvm",
+     "length": 32,
+     "frames": [
+      "5a010100ff00000120c5a6ea9b0af6a92aba960dcf63331222a0d361050f2c72fb81fe6d64dca692340000000000000000000000000000000000000000000000"
+     ]
+    },
+    {
+     "dir": "kvm->stick",
+     "length": 96,
+     "frames": [
+      "5a010100000000023789041ac54e30c1c25a02093decb4551c532ffdf0f0de909ffc5590f89d40c5456ed78dcc0faae421150b473e510cc95564eb98c6755ad4",
+      "5a01010100000102290cca4f76999b561528f30e74be45dc9be5caf553c065004a6d5138b51e7053454c89b914ea3fe6bd6d0000000000000000000000000000"
+     ]
+    },
+    {
+     "dir": "stick->kvm",
+     "length": 64,
+     "frames": [
+      "5a0101010101000237b9c4ec7337ff1794357b085bbd2f3097d2bf4d34ec84216131ab260a5891fd4af105d6da2016004aee164aef1bfc52a002f0f2a6553b32",
+      "5a0101020101010209c736bfe3d9debc7ab200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+     ]
+    },
+    {
+     "dir": "kvm->stick",
+     "length": 49,
+     "frames": [
+      "5a0101020201000131d0edd287ab7f22169a4b0a253f0cb961489afa4be202108c5c49b0954b6fdb87787dd48d886da18411bfd182d352d74070000000000000"
+     ]
+    },
+    {
+     "dir": "stick->kvm",
+     "length": 49,
+     "frames": [
+      "5a0101030202000131d2393a4813348318db0509178325429cb70600799818ec6011b7773cf7323d88508784e0d831e72591fba36b4709b70f48000000000000"
+     ]
+    },
+    {
+     "dir": "kvm->stick",
+     "length": 49,
+     "frames": [
+      "5a0101030302000131f38d67e45e64a0434166eea856ebbd69d463acf534179b93e41052f4d4b220a4fd0d608726633c7521c5c9e96383bd5986000000000000"
+     ]
+    },
+    {
+     "dir": "stick->kvm",
+     "length": 17,
+     "frames": [
+      "5a01010403030001111b27da7ffaa8b2d73e63a3223e72cf1a8a0000000000000000000000000000000000000000000000000000000000000000000000000000"
+     ]
+    },
+    {
+     "dir": "kvm->stick",
+     "length": 17,
+     "frames": [
+      "5a0101040403000111a299d19f4ff9a2ae29ec49a4aaa0b73a290000000000000000000000000000000000000000000000000000000000000000000000000000"
+     ]
+    },
+    {
+     "dir": "stick->kvm",
+     "length": 49,
+     "frames": [
+      "5a0101050404000131eaac0962544c8a316c38b8a7f4cde7fbe774cb3745de13bbd5e2c947d546461ec87493d1ea71bcf9b79d559e551adbe8f7000000000000"
+     ]
+    },
+    {
+     "dir": "kvm->stick",
+     "length": 49,
+     "frames": [
+      "5a0101050504000131f180836b253b27352a564254c4fbb86ddca78e8173b1c55c0dbbc152d0bf6bb4341da770fca774d8c64ae584c3782c9e92000000000000"
+     ]
+    },
+    {
+     "dir": "stick->kvm",
+     "length": 49,
+     "frames": [
+      "5a01010605050001315053b1574db4ea6fbab0eb251a8b5ce03edc457d10046b645ff52b8cb880030c8c6eb081435722d00d601d42dd7938643b000000000000"
+     ]
+    },
+    {
+     "dir": "kvm->stick",
+     "length": 49,
+     "frames": [
+      "5a0101060605000131db2ce975c2678c176440c70ed7bcc20f5f298fff20db93a4436a85fe2cf2bb31074cab7ac69de46dd3343b403210f6d1bc000000000000"
+     ]
+    },
+    {
+     "dir": "stick->kvm",
+     "length": 41,
+     "frames": [
+      "5a0101070606000129a27ece32efdf78037967dd7c6cc48a06892b878a3fee43ed93818453c7716383eb61c8e62ed99485f00000000000000000000000000000"
+     ]
+    },
+    {
+     "dir": "kvm->stick",
+     "length": 49,
+     "frames": [
+      "5a01010707060001315de14501a56da0ca892750a4532be3e60973487cc40a2e7cf4225489d263fa5117446256f0bc01688853d6ac5b05776045000000000000"
+     ]
+    }
+   ],
+   "hid_idle_frame_example": "5a010200ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+   "library_crosscheck": "noiseprotocol: handshake hash, all 3 handshake messages and all 11 transport messages identical"
+  }
+ ]
+}

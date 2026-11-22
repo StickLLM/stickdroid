@@ -1,0 +1,18 @@
+18:07:47 QR-A minted exp (redacted)
+18:07:48 T01-corrupt-P-flipped MAILBOX_GONE PASS
+18:07:48 T02-corrupt-P-short BAD_LINK PASS
+18:07:48 T03-wrong-host BAD_LINK PASS
+18:08:05 T05-reuse-invite-while-live STICK_BUSY PASS
+18:08:36 T04-direct-chat-session ok PASS
+18:08:40 T06-reuse-invite-after-session MAILBOX_GONE PASS
+18:08:41 QR-B minted exp (redacted)
+18:09:44 T07-expired-client-check EXPIRED PASS
+18:09:44 T08-expired-server-refuses MAILBOX_GONE PASS
+18:09:45 QR-C minted exp (redacted)
+18:09:53 T09-fresh-scan-second-session ok PASS
+18:09:54 QR-D minted exp (redacted)
+18:10:00 stick peer killed
+18:10:26 T10-stick-dies-mid-session LOST PASS
+SUMMARY 10/10 PASS
+# T09 WAIT: THINKING bubble after 4572ms -> Thinking… 4s | Searching
+# T09 DUMP: FILTERED dump -> Hello!

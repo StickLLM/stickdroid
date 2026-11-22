@@ -1,0 +1,4 @@
+07:59:44 mock-a0: listening on 127.0.0.1:15099
+07:59:44 mock-a0: "POST /api/api_message HTTP/1.1" 200 -
+07:59:45 mock-a0: "POST /api/api_message HTTP/1.1" 200 -
+07:59:45 mock-a0: "POST /api/api_message HTTP/1.1" 503 -

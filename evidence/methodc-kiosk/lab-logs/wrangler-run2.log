@@ -1,0 +1,53 @@
+
+ ⛅️ wrangler 4.155.0 (update available 4.165.0)
+───────────────────────────────────────────────
+Using secrets defined in .dev.vars
+Your Worker has access to the following bindings:
+Binding                                   Resource                  Mode
+env.HOME (HomeDO)                         Durable Object            local
+env.ROUTER (RouterDO)                     Durable Object            local
+env.LIMITER (LimiterDO)                   Durable Object            local
+env.FEED (FeedDO)                         Durable Object            local
+env.DB (sticklink)                        D1 Database               local
+env.ASSETS                                Assets                    local
+env.RELAYS ("(hidden)")                   Environment Variable      local
+env.FEATURE_SPAKE2_CODE ("(hidden)")      Environment Variable      local
+env.MBX_GRACE_S ("0")                     Environment Variable      local
+env.SIGNING_KID ("(hidden)")              Environment Variable      local
+env.IP_PEPPER ("(hidden)")                Environment Variable      local
+env.SIGNING_KEY ("(hidden)")              Environment Variable      local
+env.RELAY_TOKENS ("(hidden)")             Environment Variable      local
+
+⎔ Starting local server...
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mScheduled Workers are not automatically triggered during local development.[0m
+
+  To manually trigger a scheduled event, run:
+    curl "http://127.0.0.1:8800/cdn-cgi/local/scheduled"
+  For more details, see [4mhttps://developers.cloudflare.com/workers/configuration/cron-triggers/#test-cron-triggers-locally[0m
+
+
+[wrangler:info] Ready on http://127.0.0.1:8800
+[wrangler:info] GET /v1/ws 101 Switching Protocols (39ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (12ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (16ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (12ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (13ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (15ms)
+[wrangler:info] GET /v1/ws 404 Not Found (12ms)
+[wrangler:info] GET /v1/ws 404 Not Found (15ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (14ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (15ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (13ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (15ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (18ms)
+[wrangler:info] GET /v1/keys 200 OK (4ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (12ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (13ms)
+[wrangler:info] GET /v1/keys 200 OK (4ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (11ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (14ms)
+[wrangler:info] GET /v1/keys 200 OK (7ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (17ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (21ms)
+[wrangler:info] GET /v1/keys 200 OK (5ms)
+[wrangler:info] GET /v1/ws 101 Switching Protocols (11ms)

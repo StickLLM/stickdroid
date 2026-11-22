@@ -1,0 +1,6 @@
+PASS  2026-11-12 07:59 AST (America/Barbados)
+scripts/test-companiond-local.py against mock A0 on 127.0.0.1:15099 (no Noise, no stick).
+- hello -> welcome
+- first turn "hello there" -> turn.accepted + progress(stage=wait) + answer "echo:hello there"
+- LONG turn -> 2 answer pages, 14399 bytes combined
+- FAIL turn -> error envelope (code a0_down)

@@ -1,0 +1,141 @@
+   0.19s STATE Connecting(viaResume=false, failures=0)
+   0.30s   mc: signalling open
+   0.31s   mc: pair.joined
+   0.65s   mc: got offer
+   0.65s   mc: sent answer (1 candidates)
+   0.69s   mc: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+   0.70s   mc: noise ok
+   0.72s   mc: pair_psk+confirm ok
+   0.73s   mc: agent_ready resume=yes pins=true
+   0.73s link: always-on pins saved …EUVw
+   0.73s STATE Live(durable=true, warning=null)
+CHECK PASS 1 scan → live durable state=Live(durable=true, warning=null)
+CHECK PASS 1 always-on pins persisted tag=…EUVw home=_nxk9U2a
+CHECK PASS 1 phone static pinned (not wiped) 
+   2.35s chat[first] answer len=29 text=MOCK-A0 reply to: hello first
+CHECK PASS 1 chat 
+   2.35s   mc: session lost: harness: DC killed
+   2.35s link: transport lost: harness: DC killed
+   2.36s STATE Reconnecting(attempt=0, detail=Reconnecting…, failures=0)
+CHECK PASS 2 reconnecting shown 
+   2.36s STATE Reconnecting(attempt=1, detail=Reconnecting…, failures=0)
+   2.36s STATE Connecting(viaResume=true, failures=0)
+   2.38s   wss: signalling open (sess)
+   2.38s   wss: sess.ok
+   2.38s   wss: sess noise msg1 sent (96 B, psk=v2, prologue=97 B)
+   2.39s   wss: sess noise msg2 received (48 B) after 2 ms
+   2.39s   wss: sess noise ok (psk=v2)
+   2.39s link: always-on pins saved …EUVw
+   2.39s STATE Live(durable=true, warning=null)
+   2.39s link: wss resumed …EUVw
+   2.39s   wss: resume token rotated …hqiw
+CHECK PASS 2 WSS auto-resumed (no scan) after 0s
+CHECK PASS 2 pins kept (token rotated) 
+CHECK PASS 2 live is WSS sess (or Method C if stick still on DC) 
+   4.11s chat[resumed] answer len=31 text=MOCK-A0 reply to: hello resumed
+CHECK PASS 2 chat after resume 
+   4.11s   wss: sess dropped: harness: soft drop for Reconnect (rx_seq=6)
+   4.11s link: transport lost: harness: soft drop for Reconnect
+   4.11s STATE Reconnecting(attempt=0, detail=Reconnecting…, failures=0)
+   4.11s link: reconnect tap → RETRYING_NOW
+   4.11s STATE Reconnecting(attempt=1, detail=Reconnecting…, failures=0)
+   4.11s STATE Connecting(viaResume=true, failures=0)
+   4.11s   wss: sess ws closing code=1000 reason=bye
+   4.13s   wss: signalling open (sess)
+   4.13s   wss: sess.ok
+   4.13s   wss: sess noise msg1 sent (96 B, psk=v2, prologue=97 B)
+   4.13s   wss: sess noise msg2 received (48 B) after 2 ms
+   4.13s link: reconnect tap → IN_FLIGHT
+   4.13s   wss: sess noise ok (psk=v2)
+   4.13s   wss: sess.have n=6
+   4.13s link: always-on pins saved …hqiw
+   4.14s STATE Live(durable=true, warning=null)
+   4.14s link: wss resumed …hqiw
+   4.14s   wss: resume token rotated …IISQ
+   4.14s   wss: drop bad sess.frame
+   4.14s   wss: drop bad sess.frame
+   4.15s link: reconnect tap → ALREADY_LIVE
+   4.17s link: reconnect tap → ALREADY_LIVE
+   4.19s link: reconnect tap → ALREADY_LIVE
+   4.21s reconnect taps → [RETRYING_NOW, IN_FLIGHT, ALREADY_LIVE, ALREADY_LIVE, ALREADY_LIVE]
+CHECK PASS 2b Reconnect → live without QR after 104 ms
+CHECK PASS 2b exactly one resume attempt for 5 taps attempts=1 taps=[RETRYING_NOW, IN_FLIGHT, ALREADY_LIVE, ALREADY_LIVE, ALREADY_LIVE]
+   5.77s chat[reconnect-tap] answer len=37 text=MOCK-A0 reply to: hello reconnect-tap
+CHECK PASS 2b chat after Reconnect 
+   5.77s   wss: sess dropped: harness: process killed (rx_seq=6)
+   5.77s link: transport lost: harness: process killed
+   5.77s STATE Reconnecting(attempt=0, detail=Reconnecting…, failures=0)
+   5.77s link: cold start with saved resume …IISQ
+   5.77s STATE Reconnecting(attempt=0, detail=Reconnecting…, failures=0)
+   5.77s   wss: sess ws closing code=1000 reason=bye
+   5.77s STATE Reconnecting(attempt=1, detail=Reconnecting…, failures=0)
+   5.77s STATE Connecting(viaResume=true, failures=0)
+   5.79s   wss: signalling open (sess)
+   5.79s   wss: sess.ok
+   5.79s   wss: sess noise msg1 sent (96 B, psk=v2, prologue=97 B)
+   5.79s   wss: sess noise msg2 received (48 B) after 2 ms
+   5.79s   wss: sess noise ok (psk=v2)
+   5.79s   wss: sess.have n=6
+   5.80s link: always-on pins saved …IISQ
+   5.80s STATE Live(durable=true, warning=null)
+   5.80s link: wss resumed …IISQ
+   5.80s   wss: resume token rotated …aKHg
+   5.80s   wss: drop bad sess.frame
+   5.80s   wss: drop bad sess.frame
+CHECK PASS 3 cold start WSS resume without QR after 0s
+   7.52s chat[coldstart] answer len=33 text=MOCK-A0 reply to: hello coldstart
+CHECK PASS 3 chat after cold start 
+   7.52s STATE Disconnected
+   7.52s link: user disconnect
+CHECK PASS 4 state Disconnected 
+CHECK PASS 4 store cleared 
+   7.72s   wss: sess ws closing code=1000 reason=bye
+CHECK PASS 4 still Disconnected 
+ 156.39s STATE Connecting(viaResume=false, failures=0)
+ 156.42s   mc: signalling open
+ 156.42s   mc: pair.joined
+ 156.43s   mc: got offer
+ 156.43s   mc: sent answer (1 candidates)
+ 156.46s   mc: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+ 156.49s   mc: noise ok
+ 156.50s   mc: pair_psk+confirm ok
+ 156.50s   mc: agent_ready resume=yes pins=true
+ 156.50s link: always-on pins saved …_-dg
+ 156.50s STATE Live(durable=true, warning=null)
+CHECK PASS 5 rescan → live 
+ 159.60s   mc: session lost: harness: after Generate
+ 159.60s link: transport lost: harness: after Generate
+ 159.60s STATE Reconnecting(attempt=0, detail=Reconnecting…, failures=0)
+ 159.60s STATE Reconnecting(attempt=1, detail=Reconnecting…, failures=0)
+ 159.60s STATE Connecting(viaResume=true, failures=0)
+ 159.62s   wss: signalling open (sess)
+ 159.62s   wss: sess ws closing code=4403 reason=revoked
+ 159.62s   wss: sess.resume err c=auth
+ 159.62s link: wss resume failed REVOKED
+ 159.62s link: session ended by stick (resume 4403); resume stopped
+ 159.62s STATE NeedScan(message=Session ended on the stick. Scan a new StickLink QR., revoked=true)
+CHECK PASS 5 Generate → NeedScan after 3s state=NeedScan(message=Session ended on the stick. Scan a new StickLink QR., revoked=true)
+CHECK PASS 5 pins cleared 
+CHECK PASS 5 revoked path (Session ended on the stick) state=NeedScan(message=Session ended on the stick. Scan a new StickLink QR., revoked=true)
+ 159.80s link: reconnect tap → SCAN_REQUIRED
+CHECK PASS 5 Reconnect after revoke → SCAN_REQUIRED tap=SCAN_REQUIRED
+CHECK PASS 5 no resume loop after revoke attempts+0 state=NeedScan(message=Session ended on the stick. Scan a new StickLink QR., revoked=true)
+CHECK PASS 5 kiosk has a new QR 
+ 276.51s STATE NeedScan(message=null, revoked=false)
+ 276.51s STATE Connecting(viaResume=false, failures=0)
+ 276.53s   mc: signalling open
+ 276.54s   mc: pair.joined
+ 276.54s   mc: got offer
+ 276.55s   mc: sent answer (1 candidates)
+ 276.57s   mc: datachannel open label=sl1 path=direct local=host remote=host proto=udp
+ 276.60s   mc: noise ok
+ 276.61s   mc: pair_psk+confirm ok
+ 276.61s   mc: agent_ready resume=yes pins=true
+ 276.61s link: always-on pins saved …2m8Q
+ 276.61s STATE Live(durable=true, warning=null)
+CHECK PASS 6 Scan QR after revoke → live state=Live(durable=true, warning=null)
+ 278.26s chat[after-revoke] answer len=36 text=MOCK-A0 reply to: hello after-revoke
+CHECK PASS 6 chat after rescan 
+ 278.26s STATE Disconnected
+ 278.26s link: user disconnect
+RESULT always-on-e2e fails=0 PASS

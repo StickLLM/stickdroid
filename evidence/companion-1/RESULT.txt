@@ -1,0 +1,7 @@
+PARTIAL  2026-11-12 08:00 AST (America/Barbados)
+direct: PASS (welcome, wait pulse, short + long answers)
+force-relay: FAIL because companiond was reused across modes; the short
+turn had no wait pulse (conversation context already existed) so the
+harness did not start the long turn. Chat over DERP itself worked
+(welcome + echo:hello from stickdroid in 402 ms). Fixed by restarting
+companiond per mode and truncating welcome previews; re-run is companion-2.

@@ -1,0 +1,4 @@
+# T07-expired-client-check  expect=EXPIRED  started 21:26:54 (America/Toronto)
+# args: 
+  0.01s harness: JoinLinkException: QR expired, tap Refresh StickLink QR on the kiosk
+RESULT outcome=EXPIRED expect=EXPIRED PASS

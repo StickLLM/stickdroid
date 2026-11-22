@@ -1,0 +1,4 @@
+# T03-wrong-host  expect=BAD_LINK  started 17:44:49 (America/Toronto)
+# args: 
+  0.01s harness: JoinLinkException: QR is not from link.stickllm.com
+RESULT outcome=BAD_LINK expect=BAD_LINK PASS

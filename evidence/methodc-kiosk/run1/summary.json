@@ -1,0 +1,50 @@
+{
+ "results": [
+  [
+   "T01-corrupt-P-flipped",
+   "MAILBOX_GONE",
+   "PASS"
+  ],
+  [
+   "T02-corrupt-P-short",
+   "BAD_LINK",
+   "PASS"
+  ],
+  [
+   "T03-wrong-host",
+   "BAD_LINK",
+   "PASS"
+  ],
+  [
+   "T05-reuse-invite-while-live",
+   "STICK_BUSY",
+   "PASS"
+  ],
+  [
+   "T04-direct-chat-session",
+   "ok",
+   "PASS"
+  ],
+  [
+   "T06-reuse-invite-after-session",
+   "MAILBOX_GONE",
+   "PASS"
+  ],
+  [
+   "T07-expired-client-check",
+   "EXPIRED",
+   "FAIL"
+  ],
+  [
+   "T08-expired-server-refuses",
+   "MAILBOX_GONE",
+   "PASS"
+  ],
+  [
+   "T09-fresh-scan-second-session",
+   "ok",
+   "PASS"
+  ]
+ ],
+ "invites_used": 3
+}

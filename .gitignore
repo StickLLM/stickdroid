@@ -1,0 +1,31 @@
+# Build and tooling
+.gradle/
+.idea/
+.kotlin/
+build/
+**/build/
+/out/
+captures/
+*.iml
+.DS_Store
+
+# Android secrets and local SDK path
+local.properties
+*.apk
+*.jks
+*.keystore
+debug.keystore
+
+# Artifacts and lab state
+dist/
+mc-lab/
+logs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Vosk model (fetched by scripts/fetch-vosk-model.sh, checksum-pinned)
+/app/src/main/assets/vosk-model-small-en-us-0.15/
+/.cache/
