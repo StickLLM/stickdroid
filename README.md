@@ -170,4 +170,4 @@ GitHub: [github.com/StickLLM](https://github.com/StickLLM).
 
 Third-party components remain under their own licenses; see [THIRD_PARTY.md](THIRD_PARTY.md).
 
-Questions or feedback: [@stickllm on X](https://x.com/stickllm)
+Questions or feedback: [@stickllm on X](https://x.com/stickllm) or [the StickLLM Discord](https://discord.gg/EMsVrd9qhD)
