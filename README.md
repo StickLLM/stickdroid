@@ -169,3 +169,5 @@ services based on it, needs a separate commercial license from Nink Inc. Contact
 GitHub: [github.com/StickLLM](https://github.com/StickLLM).
 
 Third-party components remain under their own licenses; see [THIRD_PARTY.md](THIRD_PARTY.md).
+
+Questions or feedback: [@stickllm on X](https://x.com/stickllm)
