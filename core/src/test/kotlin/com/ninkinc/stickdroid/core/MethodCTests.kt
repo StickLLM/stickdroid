@@ -165,9 +165,10 @@ class MethodCTests {
         assertArrayEquals(big, mux.http("GET", "/big").body)
         val g = mux.http("POST", "/gz", mapOf("Content-Type" to "application/json"), ByteArray(80_000))
         assertEquals(201, g.status); assertArrayEquals(text, g.body)
-        // 80 kB request body went out as http_req(body_len) + 3 http_chunk(role=req)
+        // 80 kB request body → http_req(body_len) + ceil(80k/CHUNK) http_chunk(role=req)
         val reqChunks = sent.filter { it["t"]!!.jsonPrimitive.content == "http_chunk" }
-        assertEquals(3, reqChunks.size)
+        val expectChunks = (80_000 + AppMux.CHUNK - 1) / AppMux.CHUNK
+        assertEquals(expectChunks, reqChunks.size)
         assertTrue(reqChunks.last()["eof"]!!.jsonPrimitive.content == "true")
     }
 

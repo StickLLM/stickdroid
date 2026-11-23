@@ -251,7 +251,10 @@ class A0ChatAttachmentTests {
         val parts = parseMultipart(r.headers["Content-Type"]!!, r.body)
         assertEquals(listOf("text", "context", "message_id", "attachments"),
             parts.map { Regex("name=\"([^\"]+)\"").find(it.first["content-disposition"]!!)!!.groupValues[1] })
-        assertTrue(String(parts[0].second).startsWith("what is this?"), "phone instruction appended like text-only")
+        val sentText = String(parts[0].second)
+        assertTrue(sentText.startsWith("what is this?"), "phone instruction appended like text-only")
+        assertTrue(sentText.contains(PhonePrompt.IMAGE_INSTRUCTION), "image send must ask A0 to call vision_load")
+        assertFalse(sentText.contains("Reply briefly and conversationally in plain text"))
         assertTrue(img.contentEquals(parts[3].second))
         assertTrue(frames.count { (it["t"] as JsonPrimitive).content == "http_chunk" } >= 5, "body went chunked")
         assertEquals(1, turn.steps.size)

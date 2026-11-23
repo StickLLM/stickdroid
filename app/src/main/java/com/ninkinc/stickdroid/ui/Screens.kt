@@ -297,7 +297,7 @@ fun ChatScreen(
         Box(Modifier.weight(1f)) {
         LazyColumn(Modifier.fillMaxSize().padding(horizontal = 12.dp), state = list, verticalArrangement = Arrangement.spacedBy(8.dp)) {
             items(vm.lines, key = { it.id }) { line ->
-                Bubble(line, vm.displayText(line), vm.showSteps, onStopSpeaking = { vm.stopSpeaking() })
+                Bubble(line, vm.displayText(line), vm.showSteps, onStopSpeaking = { vm.stopSpeaking() }, onRetry = { vm.retrySend(it) })
             }
         }
         if (showJump && vm.lines.isNotEmpty()) {
@@ -458,7 +458,7 @@ fun ChatScreen(
 }
 
 @Composable
-private fun Bubble(line: ChatLine, shownText: String, showSteps: Boolean, onStopSpeaking: () -> Unit) {
+private fun Bubble(line: ChatLine, shownText: String, showSteps: Boolean, onStopSpeaking: () -> Unit, onRetry: (String) -> Unit = {}) {
     if (line.thinking) {
         ThinkingBubble(line)
         return
@@ -487,6 +487,11 @@ private fun Bubble(line: ChatLine, shownText: String, showSteps: Boolean, onStop
                     color = color,
                     style = if (line.status || line.error) MaterialTheme.typography.bodySmall else MaterialTheme.typography.bodyLarge
                 )
+            }
+            if (line.error && line.retryable) {
+                TextButton(onClick = { onRetry(line.retryTurnId ?: line.id.removeSuffix("/a")) }) {
+                    Text("Retry")
+                }
             }
             if (line.speaking) {
                 Text(
@@ -755,9 +760,10 @@ private fun ThinkingBubble(line: ChatLine) {
     }
     val elapsed = now - (line.startedAtMs ?: now)
     val secs = elapsed.coerceAtLeast(0L) / 1000L
-    val rest = ThinkingStatus.lines(elapsed, line.progress).drop(1)
+    val rest = if (line.sending) emptyList() else ThinkingStatus.lines(elapsed, line.progress).drop(1)
     val dots = if (reduceMotion) "…" else ".".repeat((((now / 300) % 3) + 1).toInt())
-    val title = if (reduceMotion) "Thinking… ${secs}s" else "Thinking$dots ${secs}s"
+    val word = if (line.sending) "Sending" else "Thinking"
+    val title = if (reduceMotion) "$word… ${secs}s" else "$word$dots ${secs}s"
     Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.Start) {
         Column(
             Modifier

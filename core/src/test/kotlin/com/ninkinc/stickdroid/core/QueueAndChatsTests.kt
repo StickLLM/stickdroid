@@ -396,4 +396,52 @@ class QueueAndChatsTests {
         assertEquals(0, t.endNo)
         assertFalse(a0.ctxs[c.id]!!.running)
     }
+
+    @Test fun directSubmitAnnouncesBeforeMessageAsyncReturns() {
+        val hold = java.util.concurrent.CountDownLatch(1)
+        val a0 = FakeA0()
+        val rec = Rec()
+        val cv = conv(rec)
+        lateinit var mux: AppMux
+        val bufs = HashMap<String, Pair<kotlinx.serialization.json.JsonObject, java.io.ByteArrayOutputStream>>()
+        fun s(o: kotlinx.serialization.json.JsonObject, k: String) =
+            (o[k] as? kotlinx.serialization.json.JsonPrimitive)?.contentOrNull
+        fun serve(head: kotlinx.serialization.json.JsonObject, body: ByteArray) {
+            val path = s(head, "path")!!
+            Thread {
+                if (path.endsWith("message_async")) hold.await(5, java.util.concurrent.TimeUnit.SECONDS)
+                val h = (head["headers"] as kotlinx.serialization.json.JsonObject).mapValues {
+                    (it.value as kotlinx.serialization.json.JsonPrimitive).content
+                }
+                val (st, txt) = a0.handler(A0ChatAttachmentTests.Req(s(head, "method")!!, path, h, body))
+                mux.dispatch(kotlinx.serialization.json.buildJsonObject {
+                    put("t", "http_res"); put("id", s(head, "id")); put("status", st)
+                    putJsonObject("headers") { put("content-type", "application/json") }
+                    put("body_b64", Bytes.b64u(txt.toByteArray()))
+                })
+            }.start()
+        }
+        mux = AppMux({ m ->
+            when (s(m, "t")) {
+                "http_req" -> if (m["body_len"] != null) bufs[s(m, "id")!!] = m to java.io.ByteArrayOutputStream()
+                    else serve(m, s(m, "body_b64")?.let { Bytes.unb64u(it) } ?: ByteArray(0))
+                "http_chunk" -> {
+                    val b = bufs[s(m, "id")!!]!!
+                    b.second.write(Bytes.unb64u(s(m, "body_b64")!!))
+                    if ((m["eof"] as kotlinx.serialization.json.JsonPrimitive).content == "true") {
+                        bufs.remove(s(m, "id")!!); serve(b.first, b.second.toByteArray())
+                    }
+                }
+            }
+        }, chunkPaceMs = 0)
+        cv.setChat(A0Chat(mux))
+        cv.submit("hello now")
+        assertEquals(listOf("hello now"), rec.starts)
+        assertFalse(rec.busy) // A0 has not accepted the turn yet
+        assertEquals(0, a0.messageAsync.get())
+        hold.countDown()
+        waitFor(what = "reply") { rec.done.size == 1 }
+        assertEquals("reply to: hello now", rec.done[0].second.answer)
+    }
+
 }

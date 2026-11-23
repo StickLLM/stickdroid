@@ -1,0 +1,2 @@
+0483f03baac234e202977cfc917ad3f7a4e220d676098d0487f9d89ef2b58ce5  releases/stickdroid-0.3.8-methodc-debug.apk
+0483f03baac234e202977cfc917ad3f7a4e220d676098d0487f9d89ef2b58ce5  releases/StickDroid-0.3.8.apk

@@ -22,7 +22,7 @@ import java.util.zip.GZIPInputStream
  * forwards /agent-zero, /socket.io, /api/agent, /api/csrf*, /api/pair/status
  * to the stick's loopback gateway (everything else → 403 "forbidden path").
  *
- *  → {t:http_req, id:"r<n>", method, path, headers, body_b64?}            (body ≤ 36 KiB)
+ *  → {t:http_req, id:"r<n>", method, path, headers, body_b64?}            (body ≤ 24 KiB)
  *  → {t:http_req, ..., body_len} + {t:http_chunk, role:req, seq, eof, body_b64}...
  *  ← {t:http_res, id, status, headers, body_b64|null}                     (single)
  *  ← {t:http_res, id, status, headers, body_len} + {t:http_chunk, role:res, ...}
@@ -77,15 +77,23 @@ class AppMux(
                     put("t", "http_req"); put("id", id); put("method", method.uppercase()); put("path", path)
                     put("headers", hdrs); put("body_len", body.size)
                 })
+                // Pace every chunk (CHUNK_GAP_MS, Cursor 64658f4) so small image
+                // posts are not blasted back-to-back; after PACE_AFTER also apply
+                // 0.3.8's longer pause (chunkPaceMs) for large uploads.
                 var i = 0; var n = 0
                 while (i < body.size) {
-                    if (n >= PACE_AFTER && chunkPaceMs > 0) Thread.sleep(chunkPaceMs)
+                    if (n >= PACE_AFTER && chunkPaceMs > 0) {
+                        try { Thread.sleep(chunkPaceMs) } catch (_: InterruptedException) {}
+                    }
                     val end = minOf(i + CHUNK, body.size)
                     sendPt(buildJsonObject {
                         put("t", "http_chunk"); put("id", id); put("role", "req"); put("seq", n++)
                         put("eof", end >= body.size); put("body_b64", Bytes.b64u(body.copyOfRange(i, end)))
                     })
                     i = end
+                    if (i < body.size && CHUNK_GAP_MS > 0) {
+                        try { Thread.sleep(CHUNK_GAP_MS) } catch (_: InterruptedException) {}
+                    }
                 }
             }
             if (!p.done.await(timeoutMs, TimeUnit.MILLISECONDS)) throw MuxError("http timeout $path")
@@ -146,10 +154,13 @@ class AppMux(
     private fun s(o: JsonObject, k: String): String? = (o[k] as? JsonPrimitive)?.contentOrNull
 
     companion object {
-        const val CHUNK = 36 * 1024
+        // Match stick app_mux_bridge CHUNK (24 KiB) — keeps sess.frame under
+        // worker SESS_BOX_MAX / SESS_FRAME_MAX with headroom.
+        const val CHUNK = 24 * 1024
         const val MAX_BODY = 8 * 1024 * 1024
         const val HTTP_MAX = 8
         const val CHUNK_PACE_MS = 15L
         const val PACE_AFTER = 16
+        const val CHUNK_GAP_MS = 2L
     }
 }

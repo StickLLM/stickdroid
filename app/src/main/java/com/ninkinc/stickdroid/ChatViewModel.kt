@@ -18,6 +18,8 @@ import com.ninkinc.stickdroid.core.CameraShots
 import com.ninkinc.stickdroid.core.A0Step
 import com.ninkinc.stickdroid.core.Attachment
 import com.ninkinc.stickdroid.core.AttachmentRules
+import com.ninkinc.stickdroid.core.ImageShrink
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.provider.OpenableColumns
@@ -73,6 +75,11 @@ data class ChatLine(
     val attachments: List<SentAttachment> = emptyList(),
     /** A0 log items for this reply ("Show Agent Zero steps"). */
     val steps: List<A0Step> = emptyList(),
+    /** Waiting for message_async to be accepted (show "Sending…" instead of "Thinking…"). */
+    val sending: Boolean = false,
+    /** This error bubble can be retried (same text/attachments, still in memory). */
+    val retryable: Boolean = false,
+    val retryTurnId: String? = null,
 )
 
 /** What the user's bubble shows for a sent file. */
@@ -146,6 +153,7 @@ class ChatViewModel(app: Application) : AndroidViewModel(app) {
         private set
     private val sentThumbs = HashMap<String, List<SentAttachment>>()
     private val turnStarted = HashMap<String, Long>()
+    private val retryByTurn = HashMap<String, Pair<String, List<com.ninkinc.stickdroid.core.Attachment>>>()
     private val a0conv: A0Conversation = A0Conversation(object : A0Conversation.Listener {
         override fun onQueue(items: List<A0Conversation.Queued>) = ui {
             queued.clear()
@@ -161,16 +169,28 @@ class ChatViewModel(app: Application) : AndroidViewModel(app) {
             turnStarted[turnId] = now
             lastError = null
             lines.add(ChatLine(turnId, fromMe = true, text = text, attachments = sent))
-            lines.add(ChatLine(turnId + "/a", fromMe = false, text = ThinkingStatus.timerLabel(0), thinking = true, startedAtMs = now))
+            lines.add(ChatLine(turnId + "/a", fromMe = false, text = ThinkingStatus.sendingLabel(0),
+                thinking = true, sending = true, startedAtMs = now, progress = ThinkingStatus.SENDING))
             currentChat = a0conv.context
             busy = true
         }
         override fun onProgress(turnId: String, progress: String) = ui {
-            status = progress
+            val sending = progress == ThinkingStatus.SENDING
+            if (!sending) status = progress.ifBlank { "Connected." }
             val started = turnStarted[turnId] ?: System.currentTimeMillis()
             val i = lines.indexOfFirst { it.id == turnId + "/a" && (it.thinking || it.error) }
-            if (i >= 0) lines[i] = lines[i].copy(thinking = true, error = false, progress = progress,
-                text = ThinkingStatus.timerLabel(System.currentTimeMillis() - started), startedAtMs = started)
+            if (i >= 0) {
+                val label = if (sending) ThinkingStatus.sendingLabel(System.currentTimeMillis() - started)
+                    else ThinkingStatus.timerLabel(System.currentTimeMillis() - started)
+                lines[i] = lines[i].copy(thinking = true, error = false, sending = sending,
+                    retryable = false, progress = if (sending) ThinkingStatus.SENDING else progress.ifBlank { null },
+                    text = label, startedAtMs = started)
+            }
+        }
+        override fun onSendFailed(turnId: String, text: String, attachments: List<com.ninkinc.stickdroid.core.Attachment>, message: String) = ui {
+            retryByTurn[turnId] = text to attachments
+            failThinking(message, turnId + "/a", retryable = true, retryTurnId = turnId)
+            busy = false
         }
         override fun onTurnDone(turnId: String, userText: String, turn: A0Chat.Turn) = ui {
             val thinkId = turnId + "/a"
@@ -265,11 +285,11 @@ class ChatViewModel(app: Application) : AndroidViewModel(app) {
             when (l) {
                 is MethodCSession -> {
                     mc = l
-                    chat = A0Chat(l.mux, timezone = java.util.TimeZone.getDefault().id).also { a0conv.setChat(it) }
+                    chat = A0Chat(l.mux, log = { m -> Log.i(TAG, m) }, timezone = java.util.TimeZone.getDefault().id).also { a0conv.setChat(it) }
                 }
                 is SessSession -> {
                     mc = null
-                    chat = A0Chat(l.mux, timezone = java.util.TimeZone.getDefault().id).also { a0conv.setChat(it) }
+                    chat = A0Chat(l.mux, log = { m -> Log.i(TAG, m) }, timezone = java.util.TimeZone.getDefault().id).also { a0conv.setChat(it) }
                     // SessSession is the live link; keep a handle for path display via link.current
                 }
                 else -> {}
@@ -610,15 +630,28 @@ class ChatViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     /** Replace the waiting bubble with an error; otherwise keep the under-list error. */
-    private fun failThinking(message: String, id: String? = null) {
-        val i = if (id != null) lines.indexOfFirst { it.id == id && it.thinking }
+    private fun failThinking(message: String, id: String? = null, retryable: Boolean = false, retryTurnId: String? = null) {
+        val i = if (id != null) lines.indexOfFirst { it.id == id && (it.thinking || it.error) }
         else lines.indexOfLast { it.thinking }
         if (i >= 0) {
             val old = lines[i]
-            lines[i] = old.copy(thinking = false, error = true, text = message, progress = null, speaking = false)
+            lines[i] = old.copy(thinking = false, sending = false, error = true, text = message,
+                progress = null, speaking = false, retryable = retryable, retryTurnId = retryTurnId)
             lastError = null
         } else {
             lastError = message
+        }
+    }
+
+    /** Resend a turn that failed at message_async (attachments stay in memory only). */
+    fun retrySend(turnId: String) {
+        val payload = retryByTurn.remove(turnId) ?: return
+        if (!connected) { lastError = "Connect to the stick first, then tap Retry."; return }
+        lines.removeAll { it.id == turnId || it.id == turnId + "/a" }
+        lastError = null
+        val id = a0conv.submit(payload.first, payload.second)
+        if (payload.second.isNotEmpty()) {
+            sentThumbs[id] = payload.second.map { SentAttachment(it.name, it.mime, it.size.toLong(), null) }
         }
     }
 
@@ -749,13 +782,14 @@ class ChatViewModel(app: Application) : AndroidViewModel(app) {
             input?.use { readCapped(it, AttachmentRules.MAX_PER_FILE + 1) }
         } catch (e: Exception) { null }
         if (bytes == null) { ui { attachError = "Couldn't read \"$name\"." }; return }
-        AttachmentRules.checkAdd(current, name, bytes.size.toLong())?.let { e -> ui { attachError = e }; return }
-        val thumb = if (mime.startsWith("image/")) thumbnail(bytes) else null
-        val p = PendingAttachment(Protocol.newId(), Attachment(name, mime, bytes), thumb)
-        Log.i(TAG, "attachment ready mime=$mime bytes=${bytes.size}")
+        val (sendName, sendMime, sendBytes) = maybeShrinkImage(name, mime, bytes)
+        AttachmentRules.checkAdd(current, sendName, sendBytes.size.toLong())?.let { e -> ui { attachError = e }; return }
+        val thumb = if (sendMime.startsWith("image/")) thumbnail(sendBytes) else null
+        val p = PendingAttachment(Protocol.newId(), Attachment(sendName, sendMime, sendBytes), thumb)
+        Log.i(TAG, "attachment ready mime=$sendMime bytes=${sendBytes.size} name=$sendName")
         ui {
             // Re-check against what's queued now (several picks may land together).
-            val err = AttachmentRules.checkAdd(pending.map { it.file.size.toLong() }, name, bytes.size.toLong())
+            val err = AttachmentRules.checkAdd(pending.map { it.file.size.toLong() }, sendName, sendBytes.size.toLong())
             if (err != null) attachError = err else pending.add(p)
         }
     }
@@ -769,6 +803,32 @@ class ChatViewModel(app: Application) : AndroidViewModel(app) {
             if (out.size() > cap) break
         }
         return out.toByteArray()
+    }
+
+    /** Shrink so the long side is at most [ImageShrink.MAX_LONG_SIDE] and send JPEG. */
+    private fun maybeShrinkImage(name: String, mime: String, bytes: ByteArray): Triple<String, String, ByteArray> {
+        if (!ImageShrink.isImageMime(mime) && !ImageShrink.isImageName(name)) return Triple(name, mime, bytes)
+        val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+        BitmapFactory.decodeByteArray(bytes, 0, bytes.size, bounds)
+        val w = bounds.outWidth
+        val h = bounds.outHeight
+        if (!ImageShrink.shouldResize(w, h)) return Triple(name, mime, bytes)
+        val (tw, th) = ImageShrink.targetSize(w, h)
+        var sample = 1
+        while (w / (sample * 2) >= tw && h / (sample * 2) >= th) sample *= 2
+        val decoded = BitmapFactory.decodeByteArray(bytes, 0, bytes.size, BitmapFactory.Options().apply { inSampleSize = sample })
+            ?: return Triple(name, mime, bytes)
+        val scaled = if (decoded.width == tw && decoded.height == th) decoded
+            else Bitmap.createScaledBitmap(decoded, tw, th, true)
+        val out = java.io.ByteArrayOutputStream()
+        val ok = scaled.compress(Bitmap.CompressFormat.JPEG, ImageShrink.JPEG_QUALITY, out)
+        if (scaled !== decoded) scaled.recycle()
+        decoded.recycle()
+        if (!ok) return Triple(name, mime, bytes)
+        val shrunk = out.toByteArray()
+        if (shrunk.isEmpty()) return Triple(name, mime, bytes)
+        Log.i(TAG, "image shrink ${w}x${h} ${bytes.size}B -> ${tw}x${th} ${shrunk.size}B jpeg")
+        return Triple(ImageShrink.jpegName(name), "image/jpeg", shrunk)
     }
 
     private fun thumbnail(bytes: ByteArray, max: Int = 320): ImageBitmap? = try {

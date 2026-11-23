@@ -36,7 +36,8 @@ import kotlinx.serialization.json.put
  * never sees either. poll is incremental: log_from = last log_version, items
  * merged by "no"; a new log_guid resets.
  */
-class A0Chat(private val mux: AppMux, private val log: (String) -> Unit = {}, private val timezone: String = "UTC") {
+class A0Chat(private val mux: AppMux, private val log: (String) -> Unit = {}, private val timezone: String = "UTC",
+             private val sendTimeoutMs: Long = SEND_TIMEOUT_MS, private val sendRetries: Int = SEND_RETRIES) {
     data class Turn(
         val answer: String?,
         val context: String,
@@ -85,6 +86,8 @@ class A0Chat(private val mux: AppMux, private val log: (String) -> Unit = {}, pr
             (status in 502..504 && (code == null || code == "agent_not_running" || code.contains("not running", ignoreCase = true)))
         /** A0's own gate: no chat model configured (api/message.py respond, model_not_configured). */
         val noModel: Boolean get() = status == NO_MODEL
+        /** message_async / upload did not complete after short retries (not a missing-reply timeout). */
+        val sendFailed: Boolean get() = status == SEND_TIMEOUT
     }
     companion object {
         /** [A0Error.status] when a turn got no answer within its timeout (not a link error). */
@@ -93,6 +96,12 @@ class A0Chat(private val mux: AppMux, private val log: (String) -> Unit = {}, pr
         const val NO_MODEL = -2
         /** [A0Error.status]: the gateway's /api/agent/status says A0 isn't running. */
         const val AGENT_DOWN = -3
+        /** message_async (or upload) mux/HTTP timed out after retries. */
+        const val SEND_TIMEOUT = -4
+        const val SEND_TIMEOUT_MS = 15_000L
+        const val SEND_RETRIES = 2
+        const val SEND_FAIL_TEXT =
+            "Couldn't send the message — the stick didn't answer in time. Tap Retry to try again."
         /** Start of the reply StickLLM's llama relay gives when llama-server isn't listening
          *  (stickllm_agent.py NO_MODEL_MESSAGE / no_model_reply, 0.7.x). */
         const val STICK_NO_MODEL_PREFIX = "No AI model is loaded on StickLLM"
@@ -135,27 +144,45 @@ class A0Chat(private val mux: AppMux, private val log: (String) -> Unit = {}, pr
         return t
     }
 
-    private fun post(path: String, body: JsonObject): AppMux.HttpResponse {
+    private fun post(path: String, body: JsonObject, timeoutMs: Long = 180_000): AppMux.HttpResponse {
         var tok = token()
         val hdr = { t: String -> base() + mapOf("Content-Type" to "application/json", "X-CSRF-Token" to t) }
-        var r = mux.http("POST", path, hdr(tok), body.toString().toByteArray())
+        var r = mux.http("POST", path, hdr(tok), body.toString().toByteArray(), timeoutMs = timeoutMs)
         if (r.status == 403) { // our token went stale (A0 restart); the bridge also retries once
             tok = token(force = true)
-            r = mux.http("POST", path, hdr(tok), body.toString().toByteArray())
+            r = mux.http("POST", path, hdr(tok), body.toString().toByteArray(), timeoutMs = timeoutMs)
         }
         return r
     }
 
     /** POST a pre-built body (multipart) with CSRF; same stale-token retry as [post]. */
-    private fun postRaw(path: String, contentType: String, body: ByteArray): AppMux.HttpResponse {
+    private fun postRaw(path: String, contentType: String, body: ByteArray, timeoutMs: Long = 180_000): AppMux.HttpResponse {
         var tok = token()
         val hdr = { t: String -> base() + mapOf("Content-Type" to contentType, "X-CSRF-Token" to t) }
-        var r = mux.http("POST", path, hdr(tok), body)
+        var r = mux.http("POST", path, hdr(tok), body, timeoutMs = timeoutMs)
         if (r.status == 403) {
             tok = token(force = true)
-            r = mux.http("POST", path, hdr(tok), body)
+            r = mux.http("POST", path, hdr(tok), body, timeoutMs = timeoutMs)
         }
         return r
+    }
+
+    /** Retry a mux/HTTP send on MuxError: [sendRetries] extra attempts, each waiting up to [sendTimeoutMs]. */
+    private fun <T> withSendRetry(label: String, block: () -> T): T {
+        val attempts = 1 + sendRetries
+        var last: Exception? = null
+        for (i in 1..attempts) {
+            try {
+                return block()
+            } catch (e: AppMux.MuxError) {
+                last = e
+                log("$label mux ${e.message ?: e.javaClass.simpleName} attempt=$i/$attempts")
+                if (i == attempts) {
+                    throw A0Error(SEND_TIMEOUT, SEND_FAIL_TEXT, "send_timeout")
+                }
+            }
+        }
+        throw last ?: A0Error(SEND_TIMEOUT, SEND_FAIL_TEXT, "send_timeout")
     }
 
     /** What the stick says about Agent Zero (GET /api/agent/status; the bridge allows the /api/agent prefix). */
@@ -264,7 +291,7 @@ class A0Chat(private val mux: AppMux, private val log: (String) -> Unit = {}, pr
             throw A0Error(413, "Attachments too large for StickLink (${AttachmentRules.mb(form.body.size.toLong())}; limit 8 MiB per message).")
         }
         log("upload ${files.size} file(s), ${form.body.size} B")
-        val r = postRaw("/agent-zero/api/upload", form.contentType, form.body)
+        val r = withSendRetry("upload") { postRaw("/agent-zero/api/upload", form.contentType, form.body, timeoutMs = sendTimeoutMs) }
         if (r.status == 413) throw A0Error(413, "The stick refused the upload as too large (8 MiB limit per message).")
         if (r.status != 200) throw err(r, "upload HTTP ${r.status}")
         return (json.parseToJsonElement(r.text).jsonObject["filenames"] as? JsonArray)
@@ -274,7 +301,7 @@ class A0Chat(private val mux: AppMux, private val log: (String) -> Unit = {}, pr
     /** api/message_queue_add.py. [text] gets the phone instruction like a direct message. Returns queue length. */
     fun queueAdd(text: String, filenames: List<String>, itemId: String): Int {
         val r = post("/agent-zero/api/message_queue_add", buildJsonObject {
-            put("context", context); put("text", PhonePrompt.wrap(text)); put("item_id", itemId)
+            put("context", context); put("text", PhonePrompt.wrap(text, filenames.any { ImageShrink.isImageName(it) })); put("item_id", itemId)
             put("attachments", JsonArray(filenames.map { JsonPrimitive(it) }))
         })
         if (r.status != 200) throw err(r, "message_queue_add HTTP ${r.status}")
@@ -311,20 +338,24 @@ class A0Chat(private val mux: AppMux, private val log: (String) -> Unit = {}, pr
 
     /** message_async (JSON, or multipart with attachments). Returns the context. */
     fun start(text: String, attachments: List<Attachment>, mid: String): String {
-        val sent = PhonePrompt.wrap(text)
-        val r = if (attachments.isEmpty()) {
-            post("/agent-zero/api/message_async", buildJsonObject {
-                put("text", sent); put("context", context); put("message_id", mid)
-            })
-        } else {
-            val form = MultipartForm.build(
-                listOf("text" to sent, "context" to context, "message_id" to mid), attachments)
-            if (form.body.size > AttachmentRules.BRIDGE_MAX_BODY) {
-                throw A0Error(413, "Attachments too large for StickLink (${AttachmentRules.mb(form.body.size.toLong())}; limit 8 MiB per message).")
+        val hasImage = attachments.any { it.isImage || ImageShrink.isImageName(it.name) }
+        val sent = PhonePrompt.wrap(text, hasImage)
+        val r = withSendRetry("message_async") {
+            if (attachments.isEmpty()) {
+                post("/agent-zero/api/message_async", buildJsonObject {
+                    put("text", sent); put("context", context); put("message_id", mid)
+                }, timeoutMs = sendTimeoutMs)
+            } else {
+                val form = MultipartForm.build(
+                    listOf("text" to sent, "context" to context, "message_id" to mid), attachments)
+                if (form.body.size > AttachmentRules.BRIDGE_MAX_BODY) {
+                    throw A0Error(413, "Attachments too large for StickLink (${AttachmentRules.mb(form.body.size.toLong())}; limit 8 MiB per message).")
+                }
+                log("message_async multipart ${attachments.size} file(s), ${form.body.size} B")
+                postRaw("/agent-zero/api/message_async", form.contentType, form.body, timeoutMs = sendTimeoutMs)
             }
-            log("message_async multipart ${attachments.size} file(s), ${form.body.size} B")
-            postRaw("/agent-zero/api/message_async", form.contentType, form.body)
         }
+        log("message_async HTTP ${r.status}" + if (attachments.isEmpty()) "" else ", ${attachments.size} file(s)")
         if (r.status == 413) throw A0Error(413, "The stick refused the upload as too large (8 MiB limit per message).")
         if (r.status != 200) throw err(r, "message_async HTTP ${r.status}")
         val doc = json.parseToJsonElement(r.text).jsonObject
@@ -357,7 +388,10 @@ class A0Chat(private val mux: AppMux, private val log: (String) -> Unit = {}, pr
     ): Turn? {
         cancel = false
         val ctx = context
-        val sent = matchText?.let { PhonePrompt.wrap(it) }
+        // Match either wrap (plain or image): the hidden suffix is not in the bubble text.
+        val sentVariants = matchText?.let {
+            listOf(it, PhonePrompt.wrap(it, false), PhonePrompt.wrap(it, true))
+        }
         val items = LinkedHashMap<Int, JsonObject>()
         var logFrom = 0
         var guid: String? = null
@@ -380,7 +414,7 @@ class A0Chat(private val mux: AppMux, private val log: (String) -> Unit = {}, pr
                         ?: users.lastOrNull { no -> val c = str(items[no]!!, "content") ?: ""
                             // Match the user's words or the wrapped payload (real A0 and the mock
                             // both store whatever was in message_async.text).
-                            matchText != null && (c.contains(matchText.take(200)) || c.contains(sent!!.take(200))) && no > afterNo }
+                            matchText != null && sentVariants!!.any { c.contains(it.take(200)) } && no > afterNo }
                         ?: -1
                 } else users.firstOrNull { it > afterNo } ?: -1
                 if (userNo >= 0) {

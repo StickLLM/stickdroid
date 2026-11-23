@@ -12,8 +12,10 @@ Source is published at [github.com/StickLLM/stickdroid](https://github.com/Stick
 This repository is the Android client only; nothing here is automatically
 pushed, flashed, or deployed to a production stick.
 
-## Now: StickLink Method C kiosk QR (0.3.7-methodc)
+## Now: StickLink Method C kiosk QR (0.3.9-methodc)
 
+0.3.9: show the user bubble and a "Sending…" state immediately on submit (before message_async returns); mux/HTTP for message_async (and upload) fails and retries after 15 s (two retries) instead of waiting 180 s, then a Retry button; StickLink mux image uploads use 24 KiB chunks with 2 ms pacing (merged from Cursor 64658f4) plus 0.3.8's pace-after-16 for large bodies.
+0.3.8: image attachments tell Agent Zero to use vision_load (the old hidden "reply briefly in plain text" line made a small model skip looking at the photo); photos larger than 1600 px on the long side are shrunk to JPEG before upload. Use a new chat if an earlier turn already refused a photo.
 0.3.7: friendly setup messages: "Start Agent Zero on the kiosk" / "Load a model (like Qwen) on the kiosk"; never a false "starting". See evidence/methodc-kiosk/RESULT-0.3.7.md.
 0.3.5: idle sends go straight to Agent Zero (queue only while a reply runs; busy state always recovers); jump-to-newest button. See evidence/methodc-kiosk/RESULT-0.3.5.md.
 0.3.6: accurate errors: "No model is loaded on the stick" instead of "Connection interrupted"; Agent Zero down/erroring is shown as a stick problem and the message waits visibly. See evidence/methodc-kiosk/RESULT-0.3.6.md.

@@ -40,6 +40,8 @@ class A0Conversation(
         fun onTurnInterrupted(turnId: String, why: String) {}
         fun onBusy(busy: Boolean) {}
         fun onError(message: String) {}
+        /** message_async / upload failed after short retries; [text]/[attachments] can be retried (memory only). */
+        fun onSendFailed(turnId: String, text: String, attachments: List<Attachment>, message: String) {}
         /**
          * Something on the stick (not the link) is stopping messages: Agent Zero not running, or an
          * Agent Zero error. [message] is for the user. Called again with null once it works again.
@@ -53,7 +55,7 @@ class A0Conversation(
      * busy when the worker checks.
      */
     data class Queued(val id: String, val text: String, val attachments: List<Attachment>, val onServer: Boolean,
-                      val direct: Boolean = false)
+                      val direct: Boolean = false, val turnId: String? = null)
 
     private class Active(val turnId: String, val mid: String?, val afterNo: Int, var text: String,
                          var started: Boolean, val gen: Int, val adopt: Boolean = false)
@@ -76,6 +78,7 @@ class A0Conversation(
     @Volatile private var a0Running = false
     @Volatile private var stopRequested = false
     @Volatile private var stickProblem: String? = null
+    private val announcedTurns = HashSet<String>()
     private val worker = Thread({ run() }, "a0-conversation").apply { isDaemon = true; start() }
 
     /** A reply is in progress in this chat (ours, or one A0 is running per its latest poll). */
@@ -96,11 +99,21 @@ class A0Conversation(
     /** Send [text]/[attachments] now, or queue them if a reply is running. Returns the item id. */
     fun submit(text: String, attachments: List<Attachment> = emptyList()): String {
         val q = synchronized(lock) {
-            Queued("sdq-" + Protocol.newId(), text, attachments, onServer = false, direct = canSendDirect()).also { items.add(it) }
+            val direct = canSendDirect()
+            Queued("sdq-" + Protocol.newId(), text, attachments, onServer = false, direct = direct,
+                turnId = if (direct) newTurnId() else null).also { items.add(it) }
         }
         log(if (q.direct) "submit: direct" else "submit: queue (busy=${active?.started == true} a0Running=$a0Running local=${items.size - 1} a0=${serverQueue.size})")
+        q.turnId?.let { announceStart(it, q) }
         emitQueue(); poke()
         return q.id
+    }
+
+    private fun announceStart(turnId: String, q: Queued) {
+        if (!announcedTurns.add(turnId)) return
+        listener.onTurnStart(turnId, q.id, q.text, q.attachments, q.attachments.map { it.name })
+        listener.onProgress(turnId, ThinkingStatus.SENDING)
+        // onBusy(true) only after message_async is accepted (A0 actually running the turn).
     }
 
     /** Remove a queued message before it is sent (also from A0's queue if it is already there). */
@@ -140,7 +153,7 @@ class A0Conversation(
         synchronized(lock) {
             gen++
             active = null
-            items.clear(); removals.clear(); serverQueue = emptyList()
+            items.clear(); removals.clear(); serverQueue = emptyList(); announcedTurns.clear()
             a0Running = false; stopRequested = false; idleQueueSince = 0L
             context = ctx
             adoptRunning = ctx.isNotEmpty()
@@ -245,18 +258,27 @@ class A0Conversation(
         val mid = "sd-" + Protocol.newId()
         stopRequested = false
         val myGen = synchronized(lock) { gen }
+        val turnId = q.turnId ?: newTurnId()
+        announceStart(turnId, q)
         try {
             context = c.start(q.text, q.attachments, mid)
         } catch (e: A0Chat.A0Error) {
             if (e.noModel) {
                 // A0 refused before logging anything: show the message and say why, don't wait for a reply.
                 if (c.context.isNotEmpty()) context = c.context
-                val t = newTurnId()
                 synchronized(lock) { items.remove(q) }
                 emitQueue()
                 log("message_async: model_not_configured")
-                listener.onTurnStart(t, q.id, q.text, q.attachments, q.attachments.map { it.name })
-                listener.onTurnDone(t, q.text, A0Chat.Turn(null, context, emptyList(), stopped = false, noModel = true))
+                listener.onTurnDone(turnId, q.text, A0Chat.Turn(null, context, emptyList(), stopped = false, noModel = true))
+                listener.onBusy(false)
+                poke()
+                return
+            }
+            if (e.sendFailed) {
+                synchronized(lock) { items.remove(q) }
+                emitQueue()
+                log("message_async: send_timeout")
+                listener.onSendFailed(turnId, q.text, q.attachments, e.message ?: A0Chat.SEND_FAIL_TEXT)
                 listener.onBusy(false)
                 poke()
                 return
@@ -265,18 +287,19 @@ class A0Conversation(
                 synchronized(lock) { items.remove(q) }
                 emitQueue()
                 listener.onError(e.message ?: "Agent Zero refused the message")
+                listener.onBusy(false)
                 return
             }
             throw e
         }
-        val a = Active(newTurnId(), mid, -1, q.text, started = true, gen = myGen)
+        listener.onProgress(turnId, "")
+        val a = Active(turnId, mid, -1, q.text, started = true, gen = myGen)
         a0Running = true
         synchronized(lock) {
             items.remove(q)
             if (gen == myGen) active = a
         }
         emitQueue()
-        listener.onTurnStart(a.turnId, q.id, q.text, q.attachments, q.attachments.map { it.name })
         listener.onBusy(true)
         poke()
     }
@@ -383,8 +406,14 @@ class A0Conversation(
     /** The queued item A0 just started: same text, else the oldest of ours that left A0's queue. */
     private fun takeMatching(content: String): Queued? = synchronized(lock) {
         val gone = items.filter { q -> q.onServer && serverQueue.none { it.id == q.id } }
-        val pick = gone.firstOrNull { PhonePrompt.wrap(it.text).trimEnd() == content.trimEnd() }
-            ?: items.firstOrNull { it.onServer && PhonePrompt.wrap(it.text).trimEnd() == content.trimEnd() }
+        fun matches(q: Queued): Boolean {
+            val want = content.trimEnd()
+            val img = q.attachments.any { it.isImage || ImageShrink.isImageName(it.name) }
+            return PhonePrompt.wrap(q.text, img).trimEnd() == want ||
+                PhonePrompt.wrap(q.text, false).trimEnd() == want
+        }
+        val pick = gone.firstOrNull { matches(it) }
+            ?: items.firstOrNull { it.onServer && matches(it) }
             ?: gone.firstOrNull()
         pick?.also { items.remove(it) }
     }

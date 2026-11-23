@@ -12,8 +12,8 @@ android {
         targetSdk = 35
         // Pixel 6a is arm64; x86_64 kept for an emulator.
         ndk { abiFilters += listOf("arm64-v8a", "x86_64") }
-        versionCode = 15
-        versionName = "0.3.7-methodc"
+        versionCode = 17
+        versionName = "0.3.9-methodc"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

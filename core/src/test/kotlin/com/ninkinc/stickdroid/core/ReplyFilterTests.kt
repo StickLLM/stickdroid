@@ -88,6 +88,19 @@ class ReplyFilterTests {
         assertEquals(sent, PhonePrompt.wrap(sent))
         assertEquals("plain", PhonePrompt.unwrap("plain"))
     }
+
+    @Test fun imageWrapUsesVisionInstructionAndUnwraps() {
+        val sent = PhonePrompt.wrap("what is this", hasImage = true)
+        assertTrue(sent.startsWith("what is this"))
+        assertTrue(sent.contains(PhonePrompt.IMAGE_INSTRUCTION))
+        assertFalse(sent.contains("Reply briefly and conversationally in plain text"))
+        assertEquals("what is this", PhonePrompt.unwrap(sent))
+        assertEquals(sent, PhonePrompt.wrap(sent, hasImage = true))
+        val plain = PhonePrompt.wrap("hello", hasImage = false)
+        assertTrue(plain.contains(PhonePrompt.INSTRUCTION))
+        assertFalse(plain.contains(PhonePrompt.IMAGE_INSTRUCTION))
+        assertEquals("hello", PhonePrompt.unwrap(plain))
+    }
 }
 
 class A0ChatPromptTests {

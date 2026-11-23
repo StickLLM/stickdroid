@@ -9,14 +9,21 @@ object ThinkingStatus {
     const val SLOW_AFTER_MS = 60_000L
     const val SLOW_HINT = "Still working — the stick's model can be slow"
     const val TITLE = "Thinking…"
+    const val SENDING = "Sending…"
 
-    private val EMPTY_PROGRESS = setOf("", "0", "waiting for input", "thinking", "thinking…", "thinking...")
+    private val EMPTY_PROGRESS = setOf("", "0", "waiting for input", "thinking", "thinking…", "thinking...",
+        "sending", "sending…", "sending...")
     private val SKIP_TYPES = setOf("user", "response")
     private val USEFUL_TYPES = setOf("agent", "util", "tool", "info", "hint", "progress")
 
     fun timerLabel(elapsedMs: Long): String {
         val s = (elapsedMs.coerceAtLeast(0L) / 1000L)
         return "$TITLE ${s}s"
+    }
+
+    fun sendingLabel(elapsedMs: Long): String {
+        val s = (elapsedMs.coerceAtLeast(0L) / 1000L)
+        return "$SENDING ${s}s"
     }
 
     /**
